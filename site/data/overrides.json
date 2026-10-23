@@ -56,6 +56,19 @@
           "status": "verified-primary-source"
         }
       ]
+    },
+    "r:A5114258601": {
+      "aliases": [
+        "G. Radice",
+        "Gianmarco Radice"
+      ]
+    },
+    "r:A5111871876": {
+      "aliases": [
+        "M. W. Lo",
+        "Martin Lo",
+        "Martin W. Lo"
+      ]
     }
   },
   "authorAliases": {
@@ -74,7 +87,9 @@
     "A5052091416": "A5002045054",
     "A5047983153": "A5057292780",
     "A5067219421": "A5107497719",
-    "A5024681804": "A5043707234"
+    "A5024681804": "A5043707234",
+    "A5114133982": "A5114258601",
+    "A5112013174": "A5111871876"
   },
   "excludedAuthorIds": [
     "A5029549828",
@@ -179,6 +194,24 @@
       "basis": "Official Japanese/English paired author entry and affiliation",
       "urls": [
         "https://jaxa.repo.nii.ac.jp/records/7089"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5114133982": {
+      "canonical": "A5114258601",
+      "basis": "Glasgow official Gianmarco Radice profile lists both G. Radice PRISMA/virtual formation papers and Gianmarco Radice solar power satellite papers, with matching coauthors and affiliation.",
+      "urls": [
+        "https://www.gla.ac.uk/schools/engineering/staff/index.html/staffcontact/person/4fddebed8b97"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5112013174": {
+      "canonical": "A5111871876",
+      "basis": "Genesis station-keeping paper prints Martin Lo at JPL/Caltech; JPL reference uses M. W. Lo for the same title and Williams/Barden/Howell/Wilson coauthors, consistent with the institutional personal profile.",
+      "urls": [
+        "https://engineering.purdue.edu/people/kathleen.howell.1/Publications/Conferences/2000_ISSFD_WilBarHowLoWil.pdf",
+        "https://ipnpr.jpl.nasa.gov/progress_report/42-150/150E.pdf",
+        "https://www.gg.caltech.edu/~mwl/personal/personal2.htm"
       ],
       "checkedAt": "2026-10-24"
     }

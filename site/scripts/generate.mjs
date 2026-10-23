@@ -69,7 +69,7 @@ for(const p of researchers){const pos=cy.getElementById(p.id).position();p.posit
 cy.destroy();
 const xs=researchers.map(p=>p.position.x),ys=researchers.map(p=>p.position.y);
 const positionScale=1200/Math.max(Math.max(...xs)-Math.min(...xs),Math.max(...ys)-Math.min(...ys));
-for(const p of researchers)p.position={x:Math.round(p.position.x*positionScale),y:Math.round(p.position.y*positionScale)};
+for(const p of researchers)p.position={x:Math.round(p.position.x*positionScale*1.6),y:Math.round(p.position.y*positionScale)};
 const genealogyNodes=new Set(relationships.filter(r=>r.kind==='advisor').flatMap(r=>[r.source,r.target]));
 // Longest-parent depth keeps both coadvisors above a jointly advised student.
 const advisors=relationships.filter(r=>r.kind==='advisor');

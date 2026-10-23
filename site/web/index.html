@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#F7F6F0">
+  <meta name="description" content="宇宙機の軌道設計・最適化に関する共著、指導、研究室、研究課題の関係を出典付きで調べる研究者マップ。">
+  <title>researcher.net — 研究者マップ</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./assets/cytoscape.min.js"></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a href="#search" class="skip-link">研究者検索へ</a>
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="researcher.net ホーム">researcher<span>.net</span></a>
+    <div class="header-context">宇宙機の軌道設計・最適化</div>
+    <div class="header-right"><span class="snapshot">2026.10.23 収録</span><button id="about-button" class="text-button">収録範囲・出典</button></div>
+  </header>
+  <main class="workspace" id="workspace">
+    <aside class="sidebar" id="sidebar" aria-label="検索と絞り込み">
+      <div class="search-block">
+        <div class="sidebar-heading"><h1>研究者マップ</h1><button class="icon-button mobile-only" id="close-sidebar" aria-label="検索パネルを閉じる">×</button></div>
+        <label for="search" class="sr-only">氏名・所属・テーマ・論文名を検索</label>
+        <div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="氏名・所属・テーマ・論文名" autocomplete="off"><button id="clear-search" aria-label="検索をクリア" hidden>×</button></div>
+      </div>
+      <div class="filter-scroll">
+        <details class="filter-section" open>
+          <summary>研究テーマ <span id="topic-count">全テーマ</span></summary>
+          <div id="topic-filters" class="topic-filters"></div>
+        </details>
+        <details class="filter-section" open>
+          <summary>年代 <span id="period-summary"></span></summary>
+          <div class="year-inputs"><label>開始年<input id="year-from" type="number" aria-label="開始年" step="1"></label><span>—</span><label>終了年<input id="year-to" type="number" aria-label="終了年" step="1"></label></div>
+          <label class="check-row unknown"><input type="checkbox" id="include-unknown" checked><span>年代不明を含む</span></label>
+        </details>
+        <details class="filter-section" open>
+          <summary>関係の種類</summary>
+          <div class="relationship-filters">
+            <label class="check-row"><input type="checkbox" name="relation" value="coauthor" checked><span class="line-symbol solid"></span><span>共著</span></label>
+            <label class="check-row"><input type="checkbox" name="relation" value="advisor"><span class="line-symbol arrow"></span><span>指導</span></label>
+            <label class="check-row"><input type="checkbox" name="relation" value="lab"><span class="line-symbol dashed"></span><span>研究室</span></label>
+            <label class="check-row"><input type="checkbox" name="relation" value="project"><span class="line-symbol dotted"></span><span>研究課題</span></label>
+          </div>
+          <button id="reset-filters" class="text-button reset-filters">絞り込みを解除</button>
+        </details>
+      </div>
+      <div class="list-heading"><h2>研究者 <span id="result-count">—</span></h2><span id="list-caption">起点を先に表示</span></div>
+      <div id="people-list" class="people-list" aria-label="研究者一覧"></div>
+      <div class="sidebar-foot">共著件数は収録論文内の集計</div>
+    </aside>
+    <section class="map-pane" aria-label="研究者の関係図">
+      <div class="map-toolbar">
+        <div class="mode-switch" role="group" aria-label="表示切り替え"><button id="network-mode" aria-pressed="true">共著ネットワーク</button><button id="lineage-mode" aria-pressed="false">研究の系譜</button></div>
+        <button class="mobile-only button compact" id="open-sidebar">検索・絞り込み</button>
+        <div class="map-counts" id="map-counts">データを読み込み中</div>
+      </div>
+      <div class="map-stage" id="map-stage">
+        <div id="graph" role="img" aria-label="研究者の関係図。研究者一覧からも人物と根拠を確認できます。"></div>
+        <div id="loading" class="map-message"><span class="loading-mark"></span><p>データを読み込み中</p></div>
+        <div id="empty-map" class="map-message" hidden><h2>該当する関係がありません</h2><p>年代・テーマ・関係の種類を変更してください。</p><button class="button" id="empty-reset">絞り込みを解除</button></div>
+        <div class="focus-indicator" id="focus-indicator" hidden><span id="focus-label"></span><button id="clear-focus" aria-label="周辺表示を解除">×</button></div>
+        <div class="map-controls" role="group" aria-label="マップ操作"><button id="zoom-in" aria-label="拡大">＋</button><button id="zoom-out" aria-label="縮小">−</button><button id="fit-map" aria-label="全体を表示"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+        <div id="tooltip" class="graph-tooltip" role="tooltip" hidden></div>
+        <div class="map-key"><span><i class="shape person"></i>研究者</span><span><i class="shape lab"></i>研究室</span><span><i class="shape project"></i>研究課題</span><span class="key-note" id="key-note">線の太さ：共著件数</span></div>
+      </div>
+      <footer class="map-footer"><span id="view-note">配置は共著関係に基づきます。地理的位置は表しません。</span></footer>
+    </section>
+    <aside id="detail-panel" class="detail-panel" aria-label="選択内容の詳細" hidden>
+      <div class="detail-toolbar"><span id="detail-type">研究者</span><button id="close-detail" class="icon-button" aria-label="詳細を閉じる">×</button></div>
+      <div id="detail-content" class="detail-content"></div>
+    </aside>
+  </main>
+  <div id="status" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="about-dialog"><div class="dialog-header"><h2>収録範囲・出典</h2><button id="close-about" class="icon-button" aria-label="説明を閉じる">×</button></div><div id="about-content" class="dialog-content"></div></dialog>
+  <noscript>このマップにはJavaScriptが必要です。</noscript>
+</body>
+</html>

@@ -1,0 +1,143 @@
+[
+  {
+    "name": "Kathleen C. Howell",
+    "query": "Kathleen Howell",
+    "aliases": [
+      "Kathleen Howell"
+    ],
+    "profileUrl": "https://engineering.purdue.edu/AAE/people/Faculty/ptProfile?resource_id=1384",
+    "expected": "Purdue",
+    "openalex": "A5069943922",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Daniel J. Scheeres",
+    "query": "Daniel Scheeres",
+    "aliases": [
+      "Daniel Scheeres"
+    ],
+    "profileUrl": "https://experts.colorado.edu/display/fisid_145035",
+    "expected": "Colorado",
+    "openalex": "A5021928700",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Francesco Topputo",
+    "query": "Francesco Topputo",
+    "openalex": "A5036488441",
+    "profileUrl": "https://www.aero.polimi.it/it/personale/francesco.topputo",
+    "expected": "Milano",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Dario Izzo",
+    "query": "Dario Izzo",
+    "profileUrl": "https://www.esa.int/gsp/ACT/team/dario_izzo/",
+    "expected": "European Space",
+    "openalex": "A5020258120",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Naoya Ozaki",
+    "query": "Naoya Ozaki",
+    "aliases": [
+      "尾崎直哉",
+      "尾崎 直哉"
+    ],
+    "profileUrl": "https://www.isas.jaxa.jp/sokendai/about/staff/space_exploration.html",
+    "expected": "Aerospace Exploration",
+    "openalex": "A5002106716",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Hexi Baoyin",
+    "query": "Hexi Baoyin",
+    "aliases": [
+      "Baoyin Hexi"
+    ],
+    "profileUrl": "https://www.hy.tsinghua.edu.cn/hyen/info/1161/1119.htm",
+    "expected": "Tsinghua",
+    "openalex": "A5086851456",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Ryan P. Russell",
+    "query": "Ryan Russell",
+    "aliases": [
+      "Ryan Russell"
+    ],
+    "profileUrl": "https://sites.utexas.edu/russell/",
+    "expected": "Texas",
+    "openalex": "A5049959252",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Nicola Baresi",
+    "query": "Nicola Baresi",
+    "profileUrl": "https://www.surrey.ac.uk/surrey-space-centre/research/astrodynamics",
+    "expected": "Surrey",
+    "openalex": "A5054647725",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Simone D’Amico",
+    "query": "Simone D'Amico",
+    "openalex": "A5012192425",
+    "aliases": [
+      "Simone D'Amico",
+      "Simone Damico"
+    ],
+    "profileUrl": "https://slab.stanford.edu/",
+    "expected": "Stanford",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Fanghua Jiang",
+    "query": "Fanghua Jiang",
+    "profileUrl": "https://www.tsinghua.edu.cn/en/info/1245/14621.htm",
+    "expected": "Tsinghua",
+    "openalex": "A5087223201",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Stefano Campagnola",
+    "query": "Stefano Campagnola",
+    "expected": "",
+    "openalex": "A5043707234",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  },
+  {
+    "name": "Chit Hong Yam",
+    "query": "Chit Hong Yam",
+    "aliases": [
+      "Chit-Hong Yam"
+    ],
+    "expected": "",
+    "openalex": "A5067070328",
+    "identityStatus": "reviewed-seed",
+    "verifiedAt": "2026-10-23",
+    "verificationNote": "Name, field-specific publication record, affiliation/ORCID cross-checked against seed profile and OpenAlex candidates."
+  }
+]

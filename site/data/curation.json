@@ -1,0 +1,1665 @@
+{
+  "schemaVersion": 1,
+  "accessedAt": "2026-10-23",
+  "people": [
+    {
+      "name": "Kathleen C. Howell",
+      "aliases": [
+        "Kathleen Howell"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/762/",
+          "title": "Transfers to a gravitational saddle point: An extended mission design option for LISA Pathfinder",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Andrew D. Cox",
+      "aliases": [
+        "Andrew Cox"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/762/",
+          "title": "Transfers to a gravitational saddle point: An extended mission design option for LISA Pathfinder",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Ashwati Das",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/316/",
+          "title": "Solar Sail Trajectory Design In The Earth-Moon Circular Restricted Three Body Problem",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Robert E. Pritchett",
+      "aliases": [
+        "Robert Pritchett"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/986/",
+          "title": "Numerical methods for low-thrust trajectory optimization",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Loic Chappaz",
+      "aliases": [
+        "Loïc Chappaz"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_dissertations/1100/",
+          "title": "High-Fidelity Gravity Modeling Applied to Spacecraft Trajectories and Lunar Interior Analysis",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Amanda F. Haapala",
+      "aliases": [
+        "Amanda Haapala"
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_dissertations/278/",
+          "title": "Trajectory design in the spatial circular restricted three-body problem exploiting higher-dimensional Poincare maps",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Kiarash Tajdaran",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/1204/",
+          "title": "Incorporation of Mission Design Constraints in Floquet Mode and Hamiltonian Structure-Preserving Orbital Maintenance Control Strategies for Libration Point Orbits",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Natasha Bosanac",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "本人の学歴欄に博士指導教員を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Zubin Olikara",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.mat.uniroma2.it/~locatell/school1-astronet2/material/stud_presentations/zubin_olikara.pdf",
+          "title": "Applications of invariant manifolds in astrodynamics (2013)",
+          "quote": null,
+          "summary": "本人の発表資料に修士指導教員と取得年を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Daniel J. Scheeres",
+      "aliases": [
+        "Daniel Scheeres"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.mat.uniroma2.it/~locatell/school1-astronet2/material/stud_presentations/zubin_olikara.pdf",
+          "title": "Applications of invariant manifolds in astrodynamics (2013)",
+          "quote": null,
+          "summary": "2013年時点で博士課程在籍中、博士指導教員を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Nicola Baresi",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Stijn De Smet",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Alex Davis",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "David Lujan",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Simon Tardivel",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+          "title": "Celestial and Spaceflight Mechanics Lab — People",
+          "quote": null,
+          "summary": "本人紹介にScheeresの指導による2014年博士号取得を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Ian L. Elliott",
+      "aliases": [
+        "Ian Elliott"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Christopher J. Sullivan",
+      "aliases": [
+        "Christopher Sullivan"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Stefano Bonasera",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Thomas R. Smith",
+      "aliases": [
+        "Thomas Smith"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Francesco Topputo",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/220732",
+          "title": "Convex optimal control for on-board and on-ground low-thrust spacecraft guidance",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        },
+        {
+          "url": "https://onlineservices.polimi.it/manifesti/manifesti/controller/ricerche/RicercaPerDocentiPublic.do?evn_PRODOTTI=evento&k_doc=163123&lang=IT",
+          "title": "Politecnico di Milano — Topputo Francesco",
+          "quote": null,
+          "summary": "大学の教員情報にORCIDを掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "orcid": "https://orcid.org/0000-0002-5369-6887"
+    },
+    {
+      "name": "Andrea Carlo Morelli",
+      "aliases": [
+        "Andrea C. Morelli"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/220732",
+          "title": "Convex optimal control for on-board and on-ground low-thrust spacecraft guidance",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Eleonora Andreis",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/220733",
+          "title": "Autonomous vision-based navigation for deep-space CubeSats: algorithm development and hardware validation",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Carmine Giordano",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/177695",
+          "title": "Analysis, design, and optimization of robust trajectories for limited-capability small satellites",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Giuseppe Edoardo Addario",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Christian Hofmann",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Alessandra Mannocchi",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Masatoshi Hirabayashi",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+          "title": "CSML — People",
+          "quote": null,
+          "summary": "博士研究員として2014年10月〜2015年10月在籍。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Jay McMahon",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+          "title": "CSML — People",
+          "quote": null,
+          "summary": "博士研究員として2011年7月〜2013年3月在籍。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Simone D'Amico",
+      "aliases": [
+        "Simone D’Amico"
+      ],
+      "evidence": [
+        {
+          "url": "https://slab.stanford.edu/people/simone-damico",
+          "title": "Simone D’Amico — SLAB",
+          "quote": null,
+          "summary": "研究室の創設ディレクターと記載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Adam Koenig",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://slab.stanford.edu/people/adam-2019koenig",
+          "title": "Adam Koenig — SLAB",
+          "quote": null,
+          "summary": "博士課程の修了を2019年と記載。博士研究員在籍も別途記載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Michelle Chernick",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://slab.stanford.edu/people/michelle-2021chernick",
+          "title": "Michelle Chernick — SLAB",
+          "quote": null,
+          "summary": "博士課程の修了を2021年と記載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Joshua Sullivan",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://slab.stanford.edu/people/joshua-2020sullivan",
+          "title": "Joshua Sullivan — SLAB",
+          "quote": null,
+          "summary": "博士課程の修了を2020年と記載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Tommaso Guffanti",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://slab.stanford.edu/people",
+          "title": "Space Rendezvous Laboratory — People",
+          "quote": null,
+          "summary": "博士課程卒業生として2022年を記載。後年の博士研究員所属期間とは区別。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Paolo Panicucci",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/member/?p=paolo+panicucci",
+          "title": "Paolo Panicucci — DART",
+          "quote": null,
+          "summary": "Topputo率いるDART Labの一員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Naoya Ozaki",
+      "aliases": [
+        "尾崎直哉",
+        "尾崎 直哉"
+      ],
+      "evidence": [
+        {
+          "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+          "title": "KAKEN 20H05749",
+          "quote": null,
+          "summary": "研究代表者として尾崎直哉を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        },
+        {
+          "url": "https://www.isas.jaxa.jp/sokendai/about/staff/space_exploration.html",
+          "title": "総研大宇宙科学コース — 宇宙探査理工学分野",
+          "quote": null,
+          "summary": "尾崎直哉を宇宙機応用工学研究系の准教授として掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "currentAffiliation": "JAXA / 宇宙科学研究所"
+    },
+    {
+      "name": "Takahiro Sasaki",
+      "aliases": [
+        "佐々木貴広",
+        "佐々木 貴広"
+      ],
+      "evidence": [
+        {
+          "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+          "title": "KAKEN 20H05749",
+          "quote": null,
+          "summary": "研究分担者として佐々木貴広を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        },
+        {
+          "url": "https://nrid.nii.ac.jp/ja/nrid/1000000835168/",
+          "title": "KAKEN 研究者情報",
+          "quote": null,
+          "summary": "研究者記録内の和文名・英文業績表記を照合。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Shota Kikuchi",
+      "aliases": [
+        "菊地翔太",
+        "菊地 翔太"
+      ],
+      "evidence": [
+        {
+          "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+          "title": "KAKEN 20H05749",
+          "quote": null,
+          "summary": "研究分担者として菊地翔太を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        },
+        {
+          "url": "https://nrid.nii.ac.jp/ja/nrid/1000090830068/",
+          "title": "KAKEN 研究者情報",
+          "quote": null,
+          "summary": "研究者記録内の和文名・英文業績表記を照合。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Gianfranco Di Domenico",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Vittorio Franzese",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Gianmario Merisio",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Fabio Ferrari",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Fabio Ornati",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Alessandro Morselli",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "name": "Davide Perico",
+      "aliases": [],
+      "evidence": [
+        {
+          "url": "https://dart.polimi.it/extrema-erc/",
+          "title": "EXTREMA — DART",
+          "quote": null,
+          "summary": "公式プロジェクトのチーム一覧に氏名を掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    }
+  ],
+  "advisorships": [
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Andrew D. Cox",
+      "degree": "MS",
+      "year": 2016,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/762/",
+          "title": "Transfers to a gravitational saddle point: An extended mission design option for LISA Pathfinder",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Ashwati Das",
+      "degree": "MS",
+      "year": 2014,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/316/",
+          "title": "Solar Sail Trajectory Design In The Earth-Moon Circular Restricted Three Body Problem",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Robert E. Pritchett",
+      "degree": "MS",
+      "year": 2016,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/986/",
+          "title": "Numerical methods for low-thrust trajectory optimization",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Loic Chappaz",
+      "degree": "PhD",
+      "year": 2015,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_dissertations/1100/",
+          "title": "High-Fidelity Gravity Modeling Applied to Spacecraft Trajectories and Lunar Interior Analysis",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Amanda F. Haapala",
+      "degree": "PhD",
+      "year": 2014,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_dissertations/278/",
+          "title": "Trajectory design in the spatial circular restricted three-body problem exploiting higher-dimensional Poincare maps",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Kiarash Tajdaran",
+      "degree": "MS",
+      "year": 2015,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://docs.lib.purdue.edu/open_access_theses/1204/",
+          "title": "Incorporation of Mission Design Constraints in Floquet Mode and Hamiltonian Structure-Preserving Orbital Maintenance Control Strategies for Libration Point Orbits",
+          "quote": null,
+          "summary": "学位リポジトリの First Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Natasha Bosanac",
+      "degree": "PhD",
+      "year": 2016,
+      "startYear": 2013,
+      "endYear": 2016,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "本人の学歴欄に博士指導教員を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Kathleen C. Howell",
+      "student": "Zubin Olikara",
+      "degree": "MS",
+      "year": 2010,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.mat.uniroma2.it/~locatell/school1-astronet2/material/stud_presentations/zubin_olikara.pdf",
+          "title": "Applications of invariant manifolds in astrodynamics (2013)",
+          "quote": null,
+          "summary": "本人の発表資料に修士指導教員と取得年を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Daniel J. Scheeres",
+      "student": "Zubin Olikara",
+      "degree": "PhD",
+      "year": null,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.mat.uniroma2.it/~locatell/school1-astronet2/material/stud_presentations/zubin_olikara.pdf",
+          "title": "Applications of invariant manifolds in astrodynamics (2013)",
+          "quote": null,
+          "summary": "2013年時点で博士課程在籍中、博士指導教員を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "notes": "この資料だけから博士号取得年や指導終了年は確定しない。"
+    },
+    {
+      "advisor": "Daniel J. Scheeres",
+      "student": "Nicola Baresi",
+      "degree": "PhD",
+      "year": null,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        },
+        {
+          "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+          "title": "Celestial and Spaceflight Mechanics Lab — People",
+          "quote": null,
+          "summary": "Baresiの博士論文審査を2018年3月と記載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "notes": "Bosanac CVは卒業2017年、CSML公式ページはdefended 2018年と記載。年は未確定。"
+    },
+    {
+      "advisor": "Daniel J. Scheeres",
+      "student": "Stijn De Smet",
+      "degree": "PhD",
+      "year": 2018,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Daniel J. Scheeres",
+      "student": "Alex Davis",
+      "degree": "PhD",
+      "year": 2020,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Daniel J. Scheeres",
+      "student": "David Lujan",
+      "degree": "PhD",
+      "year": 2023,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士審査委員歴の Advisor 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Daniel J. Scheeres",
+      "student": "Simon Tardivel",
+      "degree": "PhD",
+      "year": 2014,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+          "title": "Celestial and Spaceflight Mechanics Lab — People",
+          "quote": null,
+          "summary": "本人紹介にScheeresの指導による2014年博士号取得を明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Natasha Bosanac",
+      "student": "Ian L. Elliott",
+      "degree": "PhD",
+      "year": 2022,
+      "startYear": 2017,
+      "endYear": 2022,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Natasha Bosanac",
+      "student": "Christopher J. Sullivan",
+      "degree": "PhD",
+      "year": 2022,
+      "startYear": 2017,
+      "endYear": 2022,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Natasha Bosanac",
+      "student": "Stefano Bonasera",
+      "degree": "PhD",
+      "year": 2022,
+      "startYear": 2018,
+      "endYear": 2022,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Natasha Bosanac",
+      "student": "Thomas R. Smith",
+      "degree": "PhD",
+      "year": 2023,
+      "startYear": 2018,
+      "endYear": 2023,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.colorado.edu/faculty/bosanac/sites/default/files/attached-files/bosanac_cv_0823_public.pdf",
+          "title": "Natasha Bosanac CV (September 2023)",
+          "quote": null,
+          "summary": "博士卒業生と指導期間を掲載。単独研究指導教員と明記。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Francesco Topputo",
+      "student": "Andrea Carlo Morelli",
+      "degree": "PhD",
+      "year": 2024,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/220732",
+          "title": "Convex optimal control for on-board and on-ground low-thrust spacecraft guidance",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Francesco Topputo",
+      "student": "Eleonora Andreis",
+      "degree": "PhD",
+      "year": 2024,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/220733",
+          "title": "Autonomous vision-based navigation for deep-space CubeSats: algorithm development and hardware validation",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Francesco Topputo",
+      "student": "Carmine Giordano",
+      "degree": "PhD",
+      "year": 2021,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/177695",
+          "title": "Analysis, design, and optimization of robust trajectories for limited-capability small satellites",
+          "quote": null,
+          "summary": "POLITesiの博士論文 Relatore 欄で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "advisor": "Francesco Topputo",
+      "student": "Giuseppe Edoardo Addario",
+      "degree": "MS",
+      "year": 2022,
+      "startYear": null,
+      "endYear": null,
+      "role": "advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "notes": "指導役割はリポジトリのRelatore/Correlatore区分を保持。"
+    },
+    {
+      "advisor": "Christian Hofmann",
+      "student": "Giuseppe Edoardo Addario",
+      "degree": "MS",
+      "year": 2022,
+      "startYear": null,
+      "endYear": null,
+      "role": "co-advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "notes": "指導役割はリポジトリのRelatore/Correlatore区分を保持。"
+    },
+    {
+      "advisor": "Alessandra Mannocchi",
+      "student": "Giuseppe Edoardo Addario",
+      "degree": "MS",
+      "year": 2022,
+      "startYear": null,
+      "endYear": null,
+      "role": "co-advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "notes": "指導役割はリポジトリのRelatore/Correlatore区分を保持。"
+    },
+    {
+      "advisor": "Andrea Carlo Morelli",
+      "student": "Giuseppe Edoardo Addario",
+      "degree": "MS",
+      "year": 2022,
+      "startYear": null,
+      "endYear": null,
+      "role": "co-advisor",
+      "evidence": [
+        {
+          "url": "https://www.politesi.polimi.it/handle/10589/198878",
+          "title": "Low-thrust spacecraft transfers using physics-informed neural networks",
+          "quote": null,
+          "summary": "POLITesiの指導・共同指導欄と学位日付で確認。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ],
+      "notes": "指導役割はリポジトリのRelatore/Correlatore区分を保持。"
+    }
+  ],
+  "labs": [
+    {
+      "id": "lab-csml",
+      "name": "Celestial and Spaceflight Mechanics Laboratory (CU Boulder)",
+      "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+      "members": [
+        {
+          "name": "Daniel J. Scheeres",
+          "role": "研究室主宰",
+          "startYear": 2008,
+          "endYear": null,
+          "evidence": [
+            {
+              "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+              "title": "CSML — People",
+              "quote": null,
+              "summary": "2008年に研究室を設立したと記載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Nicola Baresi",
+          "role": "博士課程・卒業生",
+          "startYear": null,
+          "endYear": null,
+          "evidence": [
+            {
+              "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+              "title": "CSML — People",
+              "quote": null,
+              "summary": "博士課程卒業生として掲載。学位年の資料間不一致のため期間は保留。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Simon Tardivel",
+          "role": "博士課程・卒業生",
+          "startYear": null,
+          "endYear": 2014,
+          "evidence": [
+            {
+              "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+              "title": "CSML — People",
+              "quote": null,
+              "summary": "博士課程卒業生。2014年5月に審査。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Masatoshi Hirabayashi",
+          "role": "博士研究員",
+          "startYear": 2014,
+          "endYear": 2015,
+          "evidence": [
+            {
+              "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+              "title": "CSML — People",
+              "quote": null,
+              "summary": "博士研究員として2014年10月〜2015年10月在籍。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Jay McMahon",
+          "role": "博士研究員",
+          "startYear": 2011,
+          "endYear": 2013,
+          "evidence": [
+            {
+              "url": "https://ccar.colorado.edu/scheeres/scheeres/people.html",
+              "title": "CSML — People",
+              "quote": null,
+              "summary": "博士研究員として2011年7月〜2013年3月在籍。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-slab",
+      "name": "Space Rendezvous Laboratory (Stanford)",
+      "url": "https://slab.stanford.edu/people",
+      "members": [
+        {
+          "name": "Simone D'Amico",
+          "role": "創設ディレクター",
+          "startYear": null,
+          "endYear": null,
+          "evidence": [
+            {
+              "url": "https://slab.stanford.edu/people/simone-damico",
+              "title": "Simone D’Amico — SLAB",
+              "quote": null,
+              "summary": "研究室の創設ディレクターと記載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Adam Koenig",
+          "role": "博士課程・卒業生",
+          "startYear": null,
+          "endYear": 2019,
+          "evidence": [
+            {
+              "url": "https://slab.stanford.edu/people/adam-2019koenig",
+              "title": "Adam Koenig — SLAB",
+              "quote": null,
+              "summary": "博士課程の修了を2019年と記載。博士研究員在籍も別途記載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Michelle Chernick",
+          "role": "博士課程・卒業生",
+          "startYear": null,
+          "endYear": 2021,
+          "evidence": [
+            {
+              "url": "https://slab.stanford.edu/people/michelle-2021chernick",
+              "title": "Michelle Chernick — SLAB",
+              "quote": null,
+              "summary": "博士課程の修了を2021年と記載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Joshua Sullivan",
+          "role": "博士課程・卒業生",
+          "startYear": null,
+          "endYear": 2020,
+          "evidence": [
+            {
+              "url": "https://slab.stanford.edu/people/joshua-2020sullivan",
+              "title": "Joshua Sullivan — SLAB",
+              "quote": null,
+              "summary": "博士課程の修了を2020年と記載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Tommaso Guffanti",
+          "role": "博士課程・卒業生",
+          "startYear": null,
+          "endYear": 2022,
+          "evidence": [
+            {
+              "url": "https://slab.stanford.edu/people",
+              "title": "Space Rendezvous Laboratory — People",
+              "quote": null,
+              "summary": "博士課程卒業生として2022年を記載。後年の博士研究員所属期間とは区別。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lab-dart",
+      "name": "Deep-space Astrodynamics Research and Technology (Politecnico di Milano)",
+      "url": "https://dart.polimi.it/",
+      "members": [
+        {
+          "name": "Francesco Topputo",
+          "role": "研究室主宰",
+          "startYear": null,
+          "endYear": null,
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/member/?p=francesco+topputo",
+              "title": "Francesco Topputo — DART",
+              "quote": null,
+              "summary": "DARTグループを率いると記載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Paolo Panicucci",
+          "role": "研究室メンバー",
+          "startYear": null,
+          "endYear": null,
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/member/?p=paolo+panicucci",
+              "title": "Paolo Panicucci — DART",
+              "quote": null,
+              "summary": "Topputo率いるDART Labの一員と明記。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-kaken-20H05749",
+      "title": "高頻度な深宇宙探査のための準自律的な軌道決定・計画手法に関する研究",
+      "type": "grant",
+      "startYear": 2020,
+      "endYear": 2023,
+      "year": null,
+      "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+      "grantId": "20H05749",
+      "funder": "JSPS / MEXT 科研費",
+      "participants": [
+        {
+          "name": "Naoya Ozaki",
+          "role": "研究代表者",
+          "evidence": [
+            {
+              "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+              "title": "KAKEN 20H05749",
+              "quote": null,
+              "summary": "研究代表者として尾崎直哉を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Takahiro Sasaki",
+          "role": "研究分担者",
+          "evidence": [
+            {
+              "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+              "title": "KAKEN 20H05749",
+              "quote": null,
+              "summary": "研究分担者として佐々木貴広を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Shota Kikuchi",
+          "role": "研究分担者",
+          "evidence": [
+            {
+              "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+              "title": "KAKEN 20H05749",
+              "quote": null,
+              "summary": "研究分担者として菊地翔太を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://kaken.nii.ac.jp/ja/grant/KAKENHI-PLANNED-20H05749/",
+          "title": "KAKEN 20H05749",
+          "quote": null,
+          "summary": "研究期間は2020年10月2日〜2023年3月31日。掲載所属は課題実施時点の情報。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    },
+    {
+      "id": "project-extrema",
+      "title": "EXTREMA — Engineering Extremely Rare Events in Astrodynamics for Deep-Space Missions in Autonomy",
+      "type": "grant",
+      "startYear": 2021,
+      "endYear": 2025,
+      "year": null,
+      "url": "https://cordis.europa.eu/project/id/864697",
+      "grantId": "864697",
+      "funder": "European Research Council (Horizon 2020)",
+      "participants": [
+        {
+          "name": "Gianfranco Di Domenico",
+          "role": "ESH",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Francesco Topputo",
+          "role": "Principal Investigator",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Eleonora Andreis",
+          "role": "Pillar I",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Vittorio Franzese",
+          "role": "Pillar I",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Gianmario Merisio",
+          "role": "Pillar III",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Carmine Giordano",
+          "role": "ESH",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Fabio Ferrari",
+          "role": "General",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Fabio Ornati",
+          "role": "ESH",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Alessandro Morselli",
+          "role": "Pillar II",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Alessandra Mannocchi",
+          "role": "Pillar II",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Paolo Panicucci",
+          "role": "Pillar I",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Davide Perico",
+          "role": "ESH",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        },
+        {
+          "name": "Andrea Carlo Morelli",
+          "role": "Pillar II",
+          "evidence": [
+            {
+              "url": "https://dart.polimi.it/extrema-erc/",
+              "title": "EXTREMA — DART",
+              "quote": null,
+              "summary": "公式プロジェクトのチーム一覧に氏名と担当を掲載。",
+              "accessedAt": "2026-10-23",
+              "status": "verified-primary-source"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "url": "https://cordis.europa.eu/project/id/864697",
+          "title": "CORDIS — EXTREMA",
+          "quote": null,
+          "summary": "EU公式記録に助成番号864697、実施期間2021〜2025年、調整機関Politecnico di Milanoを掲載。",
+          "accessedAt": "2026-10-23",
+          "status": "verified-primary-source"
+        }
+      ]
+    }
+  ]
+}

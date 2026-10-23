@@ -1,0 +1,15 @@
+{
+  "researchers": {},
+  "authorAliases": {
+    "A5028234897": "A5086851456",
+    "A5151740546": "A5087223201"
+  },
+  "excludedAuthorIds": [],
+  "excludedWorkIds": [],
+  "workTopics": {},
+  "additionalWorks": [],
+  "aliasEvidence": {
+    "A5028234897": "Same ORCID 0000-0002-6389-8677, Tsinghua affiliation and astrodynamics field as canonical profile.",
+    "A5151740546": "Same ORCID 0000-0001-8411-5603, Tsinghua affiliation and astrodynamics field as canonical profile."
+  }
+}

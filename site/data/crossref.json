@@ -1,0 +1,731 @@
+[
+  {
+    "doi": "10.2514/1.g008976",
+    "title": "Goal-Oriented Trajectory Refinement for Asteroid Mapping Using Sequential Convex Programming",
+    "year": 2025,
+    "authors": [
+      {
+        "name": "Antonio Rizza",
+        "orcid": null,
+        "affiliations": [
+          "Politecnico di Milano"
+        ]
+      },
+      {
+        "name": "Simone D’Amico",
+        "orcid": null,
+        "affiliations": [
+          "Stanford University"
+        ]
+      },
+      {
+        "name": "Francesco Topputo",
+        "orcid": "https://orcid.org/0000-0002-5369-6887",
+        "affiliations": [
+          "Politecnico di Milano"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.g008976",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W4413866738",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1007/s40295-026-00624-9",
+    "title": "Families of Two-Impulse Optimal Rendezvous Transfers Between Elliptic Orbits",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Beom Park",
+        "orcid": "https://orcid.org/0000-0001-5041-2087",
+        "affiliations": []
+      },
+      {
+        "name": "Kathleen C. Howell",
+        "orcid": "https://orcid.org/0000-0002-1298-5017",
+        "affiliations": []
+      },
+      {
+        "name": "Jaewoo Kim",
+        "orcid": "https://orcid.org/0009-0009-7372-7052",
+        "affiliations": []
+      },
+      {
+        "name": "Jaemyung Ahn",
+        "orcid": "https://orcid.org/0000-0003-4971-5130",
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1007%2Fs40295-026-00624-9",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7135193393",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.21203/rs.3.rs-10462049/v1",
+    "title": "Repeating and Persistent Viewing of Cislunar Regions from Synodic-Resonant Constellations",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Noah I. Sadaka",
+        "orcid": null,
+        "affiliations": [
+          "Purdue University West Lafayette"
+        ]
+      },
+      {
+        "name": "Maaninee Gupta",
+        "orcid": null,
+        "affiliations": [
+          "Purdue University West Lafayette"
+        ]
+      },
+      {
+        "name": "Kathleen C. Howell",
+        "orcid": null,
+        "affiliations": [
+          "Purdue University West Lafayette"
+        ]
+      },
+      {
+        "name": "Carolin Frueh",
+        "orcid": null,
+        "affiliations": [
+          "Purdue University West Lafayette"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.21203%2Frs.3.rs-10462049%2Fv1",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7204223430",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/1.g009889",
+    "title": "Autoencoder Neural Networks for Representations of Periodic Orbit Families",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Thomas H. Clark",
+        "orcid": "https://orcid.org/0000-0003-3873-968X",
+        "affiliations": [
+          "University of Colorado"
+        ]
+      },
+      {
+        "name": "Daniel J. Scheeres",
+        "orcid": null,
+        "affiliations": [
+          "University of Colorado"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.g009889",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7172259367",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1007/s10569-026-10318-x",
+    "title": "Identifying cislunar transport barriers with Keplerian maps",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Oliver H. Boodram",
+        "orcid": "https://orcid.org/0009-0005-7973-5150",
+        "affiliations": []
+      },
+      {
+        "name": "Damennick B. Henry",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Daniel J. Scheeres",
+        "orcid": null,
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1007%2Fs10569-026-10318-x",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7170142926",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1007/s40295-026-00639-2",
+    "title": "Design and Analysis of the Transfer Trajectory for the LUMIO Cislunar CubeSat Mission",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Carmine Giordano",
+        "orcid": "https://orcid.org/0000-0003-0833-4729",
+        "affiliations": []
+      },
+      {
+        "name": "Alessandro Martinelli",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Carmine Buonagura",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Gianmario Merisio",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Vittorio Franzese",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Francesco Topputo",
+        "orcid": null,
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1007%2Fs40295-026-00639-2",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7222974320",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1016/j.actaastro.2026.09.005",
+    "title": "Autonomous flyby operations for Comet Interceptor Probe B1: Guidance, navigation, and control strategy",
+    "year": 2027,
+    "authors": [
+      {
+        "name": "Takahiro Sasaki",
+        "orcid": "https://orcid.org/0000-0002-2646-7173",
+        "affiliations": []
+      },
+      {
+        "name": "Naoya Ozaki",
+        "orcid": "https://orcid.org/0000-0002-8445-1575",
+        "affiliations": []
+      },
+      {
+        "name": "Masahiro Fujiwara",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Ryo Iba",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Naoya Sakatani",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Ryogo Kai",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Yukiho Ohtsuki",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Taichi Ito",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Shintaro Nakajima",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Ryu Funase",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Toshihiro Suzuki",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Hirotaka Sekine",
+        "orcid": "https://orcid.org/0000-0002-4305-1938",
+        "affiliations": []
+      },
+      {
+        "name": "Akira Hatakeyama",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Daiki Tsuzuki",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Kota Kakihara",
+        "orcid": null,
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1016%2Fj.actaastro.2026.09.005",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7212302089",
+      "yearMatches": false,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1029/2024jh000389",
+    "title": "A Flight‐Information‐Perceived Approach to Parameter Determination of Giant Asteroids: Revisiting Dawn Mission",
+    "year": 2025,
+    "authors": [
+      {
+        "name": "Y. Liang",
+        "orcid": "https://orcid.org/0000-0002-3049-094X",
+        "affiliations": [
+          "School of Astronautics Beihang University  Beijing China",
+          "Department of Solar System Sciences ISAS/JAXA  Sagamihara Japan"
+        ]
+      },
+      {
+        "name": "N. Ozaki",
+        "orcid": null,
+        "affiliations": [
+          "Department of Space Engineering ISAS/JAXA  Sagamihara Japan"
+        ]
+      },
+      {
+        "name": "Y. Kawakatsu",
+        "orcid": null,
+        "affiliations": [
+          "Department of Space Flight Systems ISAS/JAXA  Sagamihara Japan"
+        ]
+      },
+      {
+        "name": "M. Fujimoto",
+        "orcid": null,
+        "affiliations": [
+          "Department of Solar System Sciences ISAS/JAXA  Sagamihara Japan"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1029%2F2024jh000389",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W4414158816",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/1.g009335",
+    "title": "Global Optimality in Multi-Flyby Asteroid Trajectory Optimization: Theory and Application Techniques",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Zhong Zhang",
+        "orcid": "https://orcid.org/0000-0003-0728-3202",
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      },
+      {
+        "name": "Xiang Guo",
+        "orcid": "https://orcid.org/0000-0002-3288-8070",
+        "affiliations": [
+          "National University of Defense Technology"
+        ]
+      },
+      {
+        "name": "Di Wu",
+        "orcid": "https://orcid.org/0000-0002-5214-962X",
+        "affiliations": [
+          "Beihang University"
+        ]
+      },
+      {
+        "name": "Hexi Baoyin",
+        "orcid": null,
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      },
+      {
+        "name": "Junfeng Li",
+        "orcid": null,
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      },
+      {
+        "name": "Francesco Topputo",
+        "orcid": "https://orcid.org/0000-0002-5369-6887",
+        "affiliations": [
+          "Politecnico di Milano"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.g009335",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7133124731",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1007/s42064-025-0287-z",
+    "title": "Augmented Lagrangian methods for handling terminal constraints in spacecraft trajectory optimization",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Bryn N. Fanger",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Ryan P. Russell",
+        "orcid": null,
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1007%2Fs42064-025-0287-z",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7131072507",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/6.2026-1259",
+    "title": "Optimal Transfers Between Periodic Orbit Families",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Bryn Fanger",
+        "orcid": null,
+        "affiliations": [
+          "The University of Texas at Austin"
+        ]
+      },
+      {
+        "name": "Ryan Russell",
+        "orcid": null,
+        "affiliations": [
+          "The University of Texas at Austin"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F6.2026-1259",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7126017057",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1016/j.actaastro.2025.01.006",
+    "title": "Planar retrograde periodic orbits in the elliptic restricted three-body problem",
+    "year": 2025,
+    "authors": [
+      {
+        "name": "Alicia Martínez-Cacho",
+        "orcid": "https://orcid.org/0000-0002-6607-7727",
+        "affiliations": []
+      },
+      {
+        "name": "Daniel Gil Calvo",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Claudio Bombardelli",
+        "orcid": "https://orcid.org/0000-0002-9181-1487",
+        "affiliations": []
+      },
+      {
+        "name": "Nicola Baresi",
+        "orcid": "https://orcid.org/0000-0003-4796-7369",
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1016%2Fj.actaastro.2025.01.006",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W4406288750",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1016/j.actaastro.2024.09.031",
+    "title": "Optimization of MMX relative quasi-satellite transfer trajectories using primer vector theory",
+    "year": 2024,
+    "authors": [
+      {
+        "name": "Nishanth Pushparaj",
+        "orcid": "https://orcid.org/0000-0002-6080-6132",
+        "affiliations": []
+      },
+      {
+        "name": "Nicola Baresi",
+        "orcid": "https://orcid.org/0000-0003-4796-7369",
+        "affiliations": []
+      },
+      {
+        "name": "Yasuhiro Kawakatsu",
+        "orcid": "https://orcid.org/0000-0002-8687-0298",
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1016%2Fj.actaastro.2024.09.031",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W4402621328",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/1.g009270",
+    "title": "Multirevolution Low-Thrust Spacecraft Trajectory Optimization with Sparse Mesh Pseudospectral Method",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Yilin Zou",
+        "orcid": "https://orcid.org/0009-0001-2317-2855",
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      },
+      {
+        "name": "Fanghua Jiang",
+        "orcid": null,
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.g009270",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7172254646",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/1.g009804",
+    "title": "Orbital-Elements-Based Koopman Operator Applied to Investigating Invariant Manifolds Around Asteroids",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Zihan Liu",
+        "orcid": "https://orcid.org/0009-0008-0393-2678",
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      },
+      {
+        "name": "Fanghua Jiang",
+        "orcid": null,
+        "affiliations": [
+          "Tsinghua University"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.g009804",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7169723626",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.1007/s40295-025-00564-w",
+    "title": "Europa Clipper Mission Design: Interplanetary Trajectory Mission Analysis",
+    "year": 2026,
+    "authors": [
+      {
+        "name": "Juan S. Senent",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Stefano Campagnola",
+        "orcid": "https://orcid.org/0000-0002-9548-8963",
+        "affiliations": []
+      },
+      {
+        "name": "Etienne Pellegrini",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Brent B. Buffington",
+        "orcid": null,
+        "affiliations": []
+      },
+      {
+        "name": "Troy Goodson",
+        "orcid": null,
+        "affiliations": []
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.1007%2Fs40295-025-00564-w",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W7129578025",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/6.2024-1059",
+    "title": "Europa Clipper Tour and Interplanetary Trajectory Mission Design: Analysis of Probability of Impact Requirements",
+    "year": 2024,
+    "authors": [
+      {
+        "name": "Stefano Campagnola",
+        "orcid": null,
+        "affiliations": [
+          "Jet Propulsion Laboratory"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F6.2024-1059",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W4391302197",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/1.a34804",
+    "title": "Multiple-Target Low-Thrust Interplanetary Trajectory of DESTINY+",
+    "year": 2021,
+    "authors": [
+      {
+        "name": "Onur Çelik",
+        "orcid": "https://orcid.org/0000-0003-3706-0675",
+        "affiliations": [
+          "The Graduate University for Advanced Studies, SOKENDAI, Sagamihara 252-5210, Japan"
+        ]
+      },
+      {
+        "name": "Diogene Alessandro Dei Tos",
+        "orcid": "https://orcid.org/0000-0003-2714-9609",
+        "affiliations": [
+          "Japan Aerospace Exploration Agency, Sagamihara 252-5210, Japan"
+        ]
+      },
+      {
+        "name": "Takayuki Yamamoto",
+        "orcid": null,
+        "affiliations": [
+          "Japan Aerospace Exploration Agency, Sagamihara 252-5210, Japan"
+        ]
+      },
+      {
+        "name": "Naoya Ozaki",
+        "orcid": null,
+        "affiliations": [
+          "Japan Aerospace Exploration Agency, Sagamihara 252-5210, Japan"
+        ]
+      },
+      {
+        "name": "Yasuhiro Kawakatsu",
+        "orcid": null,
+        "affiliations": [
+          "Japan Aerospace Exploration Agency, Sagamihara 252-5210, Japan"
+        ]
+      },
+      {
+        "name": "Chit Hong Yam",
+        "orcid": null,
+        "affiliations": [
+          "ispace, inc., Tokyo 103-0007, Japan"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.a34804",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W3131607966",
+      "yearMatches": true,
+      "authorCountMatches": true
+    }
+  },
+  {
+    "doi": "10.2514/1.g002367",
+    "title": "Stochastic Differential Dynamic Programming with Unscented Transform for Low-Thrust Trajectory Design",
+    "year": 2018,
+    "authors": [
+      {
+        "name": "Naoya Ozaki",
+        "orcid": null,
+        "affiliations": [
+          "University of Tokyo, Tokyo 113-8656, Japan"
+        ]
+      },
+      {
+        "name": "Stefano Campagnola",
+        "orcid": null,
+        "affiliations": [
+          "Jet Propulsion Laboratory, California Institute of Technology, Pasadena, California 91109"
+        ]
+      },
+      {
+        "name": "Ryu Funase",
+        "orcid": null,
+        "affiliations": [
+          "University of Tokyo, Tokyo 113-8656, Japan"
+        ]
+      },
+      {
+        "name": "Chit Hong Yam",
+        "orcid": null,
+        "affiliations": [
+          "iSpace Inc., Tokyo 106-0041, Japan"
+        ]
+      }
+    ],
+    "sourceUrl": "https://api.crossref.org/works/10.2514%2F1.g002367",
+    "checkedAt": "2026-10-23",
+    "comparison": {
+      "openalexWork": "w:W2756888663",
+      "yearMatches": false,
+      "authorCountMatches": true
+    }
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "environment": "Node v22.14.0; darwin/arm64",
+  "researchers": 400,
+  "works": 10374,
+  "scope": "Filtering and search model only; excludes browser paint",
+  "maxFilterMs": 60.76,
+  "maxSearchMs": 21.93,
+  "runs": [
+    {
+      "filterMs": 60.76,
+      "searchMs": 21.93,
+      "people": 380,
+      "edges": 3546
+    },
+    {
+      "filterMs": 13.03,
+      "searchMs": 3.19,
+      "people": 272,
+      "edges": 1159
+    },
+    {
+      "filterMs": 32.73,
+      "searchMs": 3.63,
+      "people": 379,
+      "edges": 3539
+    },
+    {
+      "filterMs": 8.07,
+      "searchMs": 3.41,
+      "people": 272,
+      "edges": 1154
+    },
+    {
+      "filterMs": 26.54,
+      "searchMs": 3.88,
+      "people": 379,
+      "edges": 3526
+    },
+    {
+      "filterMs": 5.15,
+      "searchMs": 1.67,
+      "people": 269,
+      "edges": 1128
+    },
+    {
+      "filterMs": 38.15,
+      "searchMs": 3.56,
+      "people": 379,
+      "edges": 3449
+    },
+    {
+      "filterMs": 6.23,
+      "searchMs": 1.85,
+      "people": 268,
+      "edges": 1091
+    }
+  ]
+}

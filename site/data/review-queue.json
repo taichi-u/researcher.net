@@ -1,0 +1,52 @@
+{
+  "pending": [
+    {
+      "openalex": "A5029549828",
+      "name": "Satoshi Ogura",
+      "reason": "Mixed author profile: space research, Buddhist studies, older power-electronics works. Profile-level merge rejected; individual works need author confirmation.",
+      "canonicalCandidate": "A5149859712",
+      "status": "excluded-pending-review"
+    },
+    {
+      "openalex": "A5100450056",
+      "name": "Junfeng Li",
+      "reason": "Mixed profile across aerospace and another field; requires per-paper assignment to the Tsinghua researcher. No name-only merge.",
+      "status": "excluded-pending-review",
+      "sourceUrls": [
+        "https://www.hy.tsinghua.edu.cn/info/1151/1887.htm",
+        "https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/slct.202502406",
+        "https://sid.onlinelibrary.wiley.com/doi/abs/10.1002/jsid.2029"
+      ]
+    },
+    {
+      "openalex": "A5111916558",
+      "name": "Junfeng Li",
+      "reason": "Mixed profile across aerospace and another field; requires per-paper assignment to the Tsinghua researcher. No name-only merge.",
+      "status": "excluded-pending-review",
+      "sourceUrls": [
+        "https://www.hy.tsinghua.edu.cn/info/1151/1887.htm",
+        "https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/slct.202502406",
+        "https://sid.onlinelibrary.wiley.com/doi/abs/10.1002/jsid.2029"
+      ]
+    },
+    {
+      "openalex": "A5101930547",
+      "name": "Junfeng Li",
+      "reason": "Mixed profile across aerospace and another field; requires per-paper assignment to the Tsinghua researcher. No name-only merge.",
+      "status": "excluded-pending-review",
+      "sourceUrls": [
+        "https://www.hy.tsinghua.edu.cn/info/1151/1887.htm",
+        "https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/slct.202502406",
+        "https://sid.onlinelibrary.wiley.com/doi/abs/10.1002/jsid.2029"
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "openalex": "A5097877847",
+      "name": "N.A. Amico",
+      "reason": "Name parsing artifact spanning multiple people named D’Amico; not a separate researcher.",
+      "sourceUrl": "https://elib.dlr.de/96316/"
+    }
+  ]
+}

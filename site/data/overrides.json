@@ -1,15 +1,288 @@
 {
-  "researchers": {},
+  "researchers": {
+    "r:A5078892721": {
+      "aliases": [
+        "Yasuhiro Kawakatsu",
+        "川勝康弘",
+        "川勝 康弘"
+      ]
+    },
+    "r:A5086657401": {
+      "aliases": [
+        "船瀬龍"
+      ]
+    },
+    "r:A5102428922": {
+      "aliases": [
+        "川端洋輔"
+      ]
+    },
+    "r:A5031690297": {
+      "aliases": [
+        "杉本理英"
+      ]
+    },
+    "r:A5002045054": {
+      "aliases": [
+        "冨木淳史"
+      ]
+    },
+    "r:A5057292780": {
+      "aliases": [
+        "柳尾朋洋"
+      ]
+    },
+    "r:A5107497719": {
+      "aliases": [
+        "廣瀬史子"
+      ]
+    },
+    "r:A5043707234": {
+      "aliases": [
+        "カンパニョーラ ステファノ"
+      ]
+    },
+    "r:A5067485980": {
+      "name": "Yuki Kayama",
+      "aliases": [
+        "香山裕樹",
+        "裕樹 香山"
+      ],
+      "evidence": [
+        {
+          "url": "https://jaxa.repo.nii.ac.jp/records/46077",
+          "title": "JAXAの和英著者・所属記録",
+          "accessedAt": "2026-10-24",
+          "status": "verified-primary-source"
+        }
+      ]
+    }
+  },
   "authorAliases": {
     "A5028234897": "A5086851456",
-    "A5151740546": "A5087223201"
+    "A5151740546": "A5087223201",
+    "A5149582290": "A5078892721",
+    "A5028109201": "A5078892721",
+    "A5026072158": "A5078892721",
+    "A5004945492": "A5002106716",
+    "A5031975328": "A5016601553",
+    "A5132171674": "A5043707234",
+    "A5109915471": "A5109834260",
+    "A5149449393": "A5086657401",
+    "A5017115229": "A5102428922",
+    "A5062320141": "A5031690297",
+    "A5052091416": "A5002045054",
+    "A5047983153": "A5057292780",
+    "A5067219421": "A5107497719",
+    "A5024681804": "A5043707234"
   },
-  "excludedAuthorIds": [],
+  "excludedAuthorIds": [
+    "A5029549828",
+    "A5013629474",
+    "A5097877847",
+    "A5100450056",
+    "A5111916558",
+    "A5101930547"
+  ],
   "excludedWorkIds": [],
   "workTopics": {},
   "additionalWorks": [],
   "aliasEvidence": {
     "A5028234897": "Same ORCID 0000-0002-6389-8677, Tsinghua affiliation and astrodynamics field as canonical profile.",
-    "A5151740546": "Same ORCID 0000-0001-8411-5603, Tsinghua affiliation and astrodynamics field as canonical profile."
+    "A5151740546": "Same ORCID 0000-0001-8411-5603, Tsinghua affiliation and astrodynamics field as canonical profile.",
+    "A5149582290": "JAXA https://jaxa.repo.nii.ac.jp/records/48313 explicitly pairs 川勝康弘 / KAWAKATSU Yasuhiro; canonical ORCID confirmed at https://link.springer.com/article/10.1007/s40295-024-00469-0 .",
+    "A5028109201": "JAXA https://jaxa.repo.nii.ac.jp/records/2001603 pairs Japanese/English names and JAXA affiliation; same ORCID 0000-0002-8687-0298 at https://link.springer.com/article/10.1007/s40295-024-00469-0 .",
+    "A5026072158": "Japanese/English author pair in OpenAlex W7144487542 links this Japanese record to A5028109201, confirmed by the JAXA institutional record.",
+    "A5004945492": "JAXA https://jaxa.repo.nii.ac.jp/records/48336 pairs 尾崎直哉 / OZAKI Naoya; official profile https://www-cv01.ufinity.jp/isas/cvclients/researchers/naoya_ozaki?frame_id=264&lang=japanese lists both names and ORCID 0000-0002-8445-1575.",
+    "A5031975328": {
+      "canonical": "A5016601553",
+      "basis": "Purdue/Howell institutional and publication continuity for Beom Park, 2022–2025",
+      "urls": [
+        "https://engineering.purdue.edu/people/kathleen.howell.1/Students/Students/beom.html",
+        "https://link.springer.com/article/10.1007/s10569-025-10236-4",
+        "https://link.springer.com/article/10.1007/s10569-023-10178-9"
+      ],
+      "checkedAt": "2026-10-23"
+    },
+    "A5132171674": {
+      "canonical": "A5043707234",
+      "basis": "Same Campagnola, Ozaki, Funase research with institutional transition JAXA/JPL",
+      "urls": [
+        "https://repository.dl.itc.u-tokyo.ac.jp/records/52916",
+        "https://www.space-flight.org/docs/2019_winter/29thSFM_Program_06-01-19_AS_96.pdf"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5109915471": {
+      "canonical": "A5109834260",
+      "basis": "DLR primary records link initials and full name to same DLR researcher",
+      "urls": [
+        "https://elib.dlr.de/81062/",
+        "https://elib.dlr.de/88026/"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5149449393": {
+      "canonical": "A5086657401",
+      "basis": "Parallel Japanese and English authors explicitly listed in JAXA institutional record",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/6925",
+        "https://jaxa.repo.nii.ac.jp/records/2002468"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5017115229": {
+      "canonical": "A5102428922",
+      "basis": "Parallel Japanese and English authors explicitly listed in JAXA institutional record",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/6925",
+        "https://jaxa.repo.nii.ac.jp/records/2002468"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5062320141": {
+      "canonical": "A5031690297",
+      "basis": "Parallel Japanese and English authors explicitly listed in JAXA institutional record",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/6925",
+        "https://jaxa.repo.nii.ac.jp/records/2002468"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5052091416": {
+      "canonical": "A5002045054",
+      "basis": "Parallel Japanese and English authors explicitly listed in JAXA institutional record",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/6925",
+        "https://jaxa.repo.nii.ac.jp/records/2002468"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5047983153": {
+      "canonical": "A5057292780",
+      "basis": "Official Japanese/English paired author entry and affiliation",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/48318"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5067219421": {
+      "canonical": "A5107497719",
+      "basis": "Official Japanese/English paired author entry and affiliation",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/2001689"
+      ],
+      "checkedAt": "2026-10-24"
+    },
+    "A5024681804": {
+      "canonical": "A5043707234",
+      "basis": "Official Japanese/English paired author entry and affiliation",
+      "urls": [
+        "https://jaxa.repo.nii.ac.jp/records/7089"
+      ],
+      "checkedAt": "2026-10-24"
+    }
+  },
+  "curatedIdentities": {
+    "Kathleen C. Howell": {
+      "openalex": "A5069943922",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Andrew D. Cox": {
+      "openalex": "A5074495297",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Amanda F. Haapala": {
+      "openalex": "A5063531459",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Natasha Bosanac": {
+      "openalex": "A5091888017",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Daniel J. Scheeres": {
+      "openalex": "A5021928700",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Nicola Baresi": {
+      "openalex": "A5054647725",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Simon Tardivel": {
+      "openalex": "A5024478785",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Francesco Topputo": {
+      "openalex": "A5036488441",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Andrea Carlo Morelli": {
+      "openalex": "A5062235726",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Eleonora Andreis": {
+      "openalex": "A5054305250",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Carmine Giordano": {
+      "openalex": "A5006567622",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Christian Hofmann": {
+      "openalex": "A5065593942",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Alessandra Mannocchi": {
+      "openalex": "A5020359982",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Jay McMahon": {
+      "openalex": "A5036045378",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Adam Koenig": {
+      "openalex": "A5088346538",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Michelle Chernick": {
+      "openalex": "A5014018134",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Tommaso Guffanti": {
+      "openalex": "A5084824876",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Paolo Panicucci": {
+      "openalex": "A5006310790",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Naoya Ozaki": {
+      "openalex": "A5002106716",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Shota Kikuchi": {
+      "openalex": "A5071023475",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Vittorio Franzese": {
+      "openalex": "A5034052736",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Gianmario Merisio": {
+      "openalex": "A5052629938",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Fabio Ferrari": {
+      "openalex": "A5026723448",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Alessandro Morselli": {
+      "openalex": "A5009867920",
+      "basis": "Official source identity and matching paper affiliation reviewed; see curation evidence."
+    },
+    "Simone D'Amico": {
+      "openalex": "A5012192425",
+      "basis": "Reviewed Stanford identity, seed and official doctoral records; apostrophe variant."
+    }
   }
 }

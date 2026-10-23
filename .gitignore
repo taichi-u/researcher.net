@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.cache/
+.env
+.env.*
+!.env.example
+.sites-runtime/
+.sites-checkout/
+*.tar.gz
+*.tgz
+.DS_Store
+site/data/candidates.json
+site/data/collection-state.json
+site/data/raw-works.json
+site/data/raw-authors.json

@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import {writeBrowserData} from './browser-data.mjs';
 // Local-only fixtures. A normal build removes these from dist before publication.
 const root='dist/qa400';
 await fs.mkdir(`${root}/data`,{recursive:true});
@@ -13,7 +14,7 @@ while(data.researchers.length<400){
   data.works.push(...works);
 }
 data.metadata.counts.researchers=400;data.metadata.counts.works=data.works.length;
-await fs.writeFile(`${root}/data/dataset.json`,JSON.stringify(data));
+await writeBrowserData(data,`${root}/data`);
 const mobile=await fs.readFile('site/tests/mobile.html','utf8');
 await fs.writeFile('dist/mobile-qa.html',mobile);
 await fs.writeFile('dist/performance-qa.html',mobile.replace('width:390px;height:844px','width:1200px;height:740px').replace('src="./index.html"','src="./qa400/index.html"').replaceAll('モバイル表示','400人表示'));

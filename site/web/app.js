@@ -1,4 +1,6 @@
 import {makeIndexes,selectView,searchPeople,relationshipPeriod} from './model.js';
+import {makeEdgeLevels,renderEdges} from './graph-policy.js';
+import {createPaperLoader} from './paper-data.js';
 const $=s=>document.querySelector(s);
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url=s=>/^https?:\/\//.test(String(s))?escape(s):'#';
@@ -7,7 +9,7 @@ const number=n=>n.toLocaleString('ja-JP');
 const kindLabels={coauthor:'共著',advisor:'指導',lab:'研究室所属',project:'研究課題への参加'};
 const roleName=role=>({advisor:'指導教員','co-advisor':'共同指導教員','Principal Investigator':'研究代表者'}[role]??role);
 const palette={interplanetary:'#466B91',lowthrust:'#9F683B',multibody:'#756A9C',smallbody:'#5A7D68',relative:'#4B8790',optimization:'#B26150',robust:'#948237',learning:'#9C6C88',unclassified:'#8b928b'};
-let zoomFrame,renderedMode;
+let zoomTimer,renderedMode,edgeLevels,overviewZoom=1,loadPaper;
 let data,indexes,view,cy,state,selected=null,detailTab='overview',paperLimit=20,tooltipTimer,searchTimer,lastFocusElement=null,lastFocusPerson=null;
 const status=text=>{$('#status').textContent=text;};
 const topicName=id=>indexes.topics.get(id)?.label??id;
@@ -17,9 +19,18 @@ const evidenceHTML=evidence=>[...new Map((evidence??[]).map(e=>[e.url+'|'+e.summ
 function periodYears(years){if(!years.length)return '年代不明';return years[0]===years.at(-1)?String(years[0]):`${years[0]}–${years.at(-1)}`;}
 function affiliationLabel(p){const a=p.affiliations[0];return a?`${a.name} · ${a.years.at(-1)??'年不明'}`:'所属情報未収録';}
 function personButton(id,label){return `<button class="person-link" data-person="${escape(id)}">${escape(label??personName(id))}</button>`;}
+function paperEvidenceHTML(w){
+  if(w.detailsPending)return '<p>著者・所属の詳細を読み込み中…</p>';
+  return `<ul>${w.authors.map(a=>`<li>${indexes.people.has(a.id)?personButton(a.id,a.name):escape(a.name)}${a.affiliations.length?` — ${escape(a.affiliations.map(i=>i.name).join(' / '))}`:''}</li>`).join('')}</ul>${link(w.sourceUrl,'OpenAlex 書誌レコード')}${w.crossref?'<br>'+link(w.crossref.url,'Crossref 書誌レコード'):''}`;
+}
+async function loadPaperEvidence(details){
+  const target=details.querySelector('.paper-evidence');
+  try{const work=await loadPaper(details.dataset.work);if(details.isConnected)target.innerHTML=paperEvidenceHTML(work);}
+  catch{if(details.isConnected)target.innerHTML='<p>詳細を読み込めませんでした。閉じて開くと再試行できます。</p>';}
+}
 function paperHTML(w){
   const authorText=w.authors.slice(0,4).map(a=>a.name).join(', ')+(w.authors.length>4?` ほか${w.authors.length-4}名`:'');
-  return `<article class="paper"><div class="paper-header"><span>${w.year??'年代不明'}</span><span>${w.access==='open'?'Open access':'出版社・収録先で確認'}</span></div><h3>${link(w.url,w.title)}</h3><p class="paper-authors">${escape(authorText)}</p><details><summary>全著者・掲載時の所属（${w.authors.length}名）</summary><ul>${w.authors.map(a=>`<li>${indexes.people.has(a.id)?personButton(a.id,a.name):escape(a.name)}${a.affiliations.length?` — ${escape(a.affiliations.map(i=>i.name).join(' / '))}`:''}</li>`).join('')}</ul>${link(w.sourceUrl,'OpenAlex 書誌レコード')}${w.crossref?'<br>'+link(w.crossref.url,'Crossref 書誌レコード'):''}</details><div class="paper-topics">${escape(w.topics.map(topicName).join(' / '))}</div></article>`;
+  return `<article class="paper"><div class="paper-header"><span>${w.year??'年代不明'}</span><span>${w.access==='open'?'Open access':'出版社・収録先で確認'}</span></div><h3>${link(w.url,w.title)}</h3><p class="paper-authors">${escape(authorText)}</p><details data-work="${escape(w.id)}"><summary>全著者・掲載時の所属（${w.authors.length}名）</summary><div class="paper-evidence">${paperEvidenceHTML(w)}</div></details><div class="paper-topics">${escape(w.topics.map(topicName).join(' / '))}</div></article>`;
 }
 function paperListHTML(works){const sorted=[...works].sort((a,b)=>(b.year??0)-(a.year??0)||a.title.localeCompare(b.title));return sorted.slice(0,paperLimit).map(paperHTML).join('')+(sorted.length>paperLimit?`<button class="button more-button" data-more>さらに20件を表示（残り${number(sorted.length-paperLimit)}件）</button>`:'');}
 function renderFilters(){
@@ -59,24 +70,42 @@ function graphStyle(zoom=1){const scale=1/zoom;return [
   {selector:'edge.selected-edge',style:{'curve-style':'bezier',label:'data(shortLabel)','font-family':'system-ui, sans-serif','font-size':11*scale,'color':'#232b2b','text-background-color':'#fcfbf7','text-background-opacity':1,'text-background-padding':5,'text-rotation':'autorotate','line-color':'#275d50','target-arrow-color':'#275d50',opacity:1,'z-index':12}}
 ];}
 function initGraph(){
-  cy=cytoscape({container:$('#graph'),elements:[],style:graphStyle(),layout:{name:'preset'},minZoom:.08,maxZoom:4,wheelSensitivity:.18,boxSelectionEnabled:false,autoungrabify:false,selectionType:'single',pixelRatio:Math.min(window.devicePixelRatio||1,2)});
+  cy=cytoscape({container:$('#graph'),elements:[],style:graphStyle(),layout:{name:'preset'},minZoom:.08,maxZoom:4,wheelSensitivity:.18,boxSelectionEnabled:false,autoungrabify:true,selectionType:'single',hideEdgesOnViewport:true,pixelRatio:1});
   cy.on('tap','node',e=>selectNode(e.target.id(),false));
   cy.on('tap','edge',e=>{if(!e.target.hasClass('dimmed'))selectEdge(e.target.id());});
   // Background taps preserve the current reading context, including taps on muted edges.
   // The explicit close button clears the selection.
   cy.on('mouseover','node, edge',e=>showTooltip(e));
   cy.on('mouseout','node, edge',()=>{tooltipTimer=setTimeout(()=>$('#tooltip').hidden=true,220);});
-  cy.on('pan zoom',()=>{$('#tooltip').hidden=true;cy.nodes().toggleClass('zoom-label',cy.zoom()>1.1);});
-  cy.on('zoom',()=>{cancelAnimationFrame(zoomFrame);zoomFrame=requestAnimationFrame(()=>cy.style(graphStyle(cy.zoom())));});
+  cy.on('pan zoom',()=>{$('#tooltip').hidden=true;});
+  // Let the canvas transform during a gesture. Recalculate styles/detail once it settles.
+  cy.on('zoom',()=>{$('#graph').dataset.viewportBusy='true';clearTimeout(zoomTimer);zoomTimer=setTimeout(()=>{cy.batch(()=>{cy.style(graphStyle(cy.zoom()));cy.nodes().toggleClass('zoom-label',cy.zoom()/overviewZoom>=3.2);});syncGraphEdges();applyHighlight();$('#graph').dataset.viewportBusy='false';},160);});
   new ResizeObserver(()=>cy.resize()).observe($('#graph'));
 }
+function edgeElement(e){return {data:{id:e.id,source:e.source,target:e.target,kind:e.kind,count:e.count,width:e.kind==='coauthor'?Math.min(.65+Math.log2(e.count+1)*.55,3.5):1,shortLabel:e.kind==='coauthor'?`${e.topics.slice(0,2).map(topicName).join(' / ')} · ${e.count}件`:`${kindLabels[e.kind]} · ${relationshipPeriod(e)}`}};}
+function syncGraphEdges(){
+  if(!view)return;
+  const edges=renderEdges(view.edges,edgeLevels,{density:$('#edge-density').value,zoomRatio:cy.zoom()/overviewZoom,selected,focusId:state.focusId});
+  const ids=new Set(edges.map(e=>e.id)),added=[];
+  cy.batch(()=>{
+    cy.edges().filter(e=>!ids.has(e.id())).remove();
+    for(const edge of edges){const element=edgeElement(edge),existing=cy.getElementById(edge.id);if(!existing.length)added.push(element);else if(existing.data('count')!==edge.count||existing.data('shortLabel')!==element.data.shortLabel)existing.data(element.data);}
+    if(added.length)cy.add(added);
+    if($('#search').value)cy.edges().addClass('search-muted');
+  });
+  $('#edge-summary').textContent=selected?.type==='node'?`${personName(selected.id)} の関係線をすべて表示`:`表示 ${number(edges.length)} / ${number(view.edges.length)}本${edges.length<view.edges.length?' · 拡大や人物選択で追加':''}`;
+  $('#graph').dataset.renderedEdges=edges.length;
+}
 function updateView({fit=false}={}){
-  const started=performance.now();view=selectView(data,state);
+  const started=performance.now();view=selectView(data,state);edgeLevels=makeEdgeLevels(view.edges);
   const modeChanged=renderedMode!==state.mode;
   const oldPositions=modeChanged?new Map():new Map(cy.nodes().map(n=>[n.id(),n.position()]));
-  const els=[...view.people.map(p=>({data:{id:p.id,label:p.name,shortName:p.name.split(/\s+/).at(-1),color:palette[p.primaryTopic],kind:'researcher',...(p.seed?{seed:1}:{})},position:state.mode==='lineage'?(p.lineagePosition??p.position):(oldPositions.get(p.id)??p.position),classes:state.mode==='lineage'?'lineage-node':''})),...view.auxiliary.map(a=>({data:{id:a.id,label:a.name.length>45?a.name.slice(0,43)+'…':a.name,color:'#8b928b',kind:a.kind},position:auxPosition(a)})),...view.edges.map(e=>({data:{...e,width:e.kind==='coauthor'?Math.min(.65+Math.log2(e.count+1)*.55,3.5):1,shortLabel:e.kind==='coauthor'?`${e.topics.slice(0,2).map(topicName).join(' / ')} · ${e.count}件`:`${kindLabels[e.kind]} · ${relationshipPeriod(e)}`}}))];
-  cy.batch(()=>{const ids=new Set(els.map(el=>el.data.id));cy.elements().filter(el=>!ids.has(el.id())).remove();const added=[];for(const el of els){const existing=cy.getElementById(el.data.id);if(!existing.length){added.push(el);continue;}if(existing.isEdge()){if(existing.data('count')!==el.data.count||existing.data('shortLabel')!==el.data.shortLabel)existing.data({count:el.data.count,width:el.data.width,shortLabel:el.data.shortLabel});}else{existing.toggleClass('lineage-node',state.mode==='lineage');if(modeChanged||el.data.kind!=='researcher')existing.position(el.position);}}if(added.length)cy.add(added);});renderedMode=state.mode;
-  if(fit&&cy.nodes().length)cy.fit(cy.elements(),55);
+  const els=[...view.people.map(p=>({data:{id:p.id,label:p.name,shortName:p.name.split(/\s+/).at(-1),color:palette[p.primaryTopic],kind:'researcher',...(p.seed?{seed:1}:{})},position:state.mode==='lineage'?(p.lineagePosition??p.position):(oldPositions.get(p.id)??p.position),classes:state.mode==='lineage'?'lineage-node':''})),...view.auxiliary.map(a=>({data:{id:a.id,label:a.name.length>45?a.name.slice(0,43)+'…':a.name,color:'#8b928b',kind:a.kind},position:auxPosition(a)}))];
+  cy.batch(()=>{const ids=new Set(els.map(el=>el.data.id));cy.nodes().filter(el=>!ids.has(el.id())).remove();const added=[];for(const el of els){const existing=cy.getElementById(el.data.id);if(!existing.length){added.push(el);continue;}existing.toggleClass('lineage-node',state.mode==='lineage');if(modeChanged||el.data.kind!=='researcher')existing.position(el.position);}if(added.length)cy.add(added);});renderedMode=state.mode;
+  if(cy.nodes().length)overviewZoom=cy.getFitViewport(cy.nodes(),55)?.zoom??1;
+  if(fit&&cy.nodes().length)cy.fit(cy.nodes(),55);
+  if(fit||modeChanged){clearTimeout(zoomTimer);cy.style(graphStyle(cy.zoom()));$('#graph').dataset.viewportBusy='false';}
+  syncGraphEdges();
   $('#empty-map').hidden=view.edges.length>0||view.people.length>0;
   const coa=view.edges.filter(e=>e.kind==='coauthor').length;
   $('#map-counts').innerHTML=`<span><strong>${number(view.people.length)}</strong>人</span><span><strong>${number(state.mode==='lineage'?view.relationships.filter(r=>r.kind==='advisor').length:coa)}</strong>${state.mode==='lineage'?'指導関係':'共著関係'}</span><span><strong>${number(view.works.length)}</strong>論文</span>`;
@@ -103,13 +132,13 @@ function showTooltip(e){
 function selectNode(id,center=true){
   if(!indexes.nodes.has(id))return;
   if(!view.visibleIds.has(id)){state.focusId=null;state.topics=[];state.from=data.metadata.minYear;state.to=data.metadata.maxYear;state.includeUnknown=true;state.mode='network';state.kinds=['coauthor','advisor','lab','project'];syncControls();updateView();}
-  selected={type:'node',id};detailTab='overview';paperLimit=20;openDetail();renderPeople();applyHighlight();renderDetail();
+  selected={type:'node',id};detailTab='overview';paperLimit=20;openDetail();syncGraphEdges();renderPeople();applyHighlight();renderDetail();
   if(center){requestAnimationFrame(()=>{cy.resize();const node=cy.getElementById(id);if(node.length){const neighborhood=node.closedNeighborhood();cy.fit(neighborhood,85);cy.zoom(Math.min(cy.zoom(),1.4));cy.center(node);}});}
   $('#workspace').classList.remove('sidebar-open');$('#tooltip').hidden=true;status(`${personName(id)}の詳細`);
 }
-function selectEdge(id){selected={type:'edge',id};paperLimit=20;openDetail();applyHighlight();renderDetail();$('#tooltip').hidden=true;}
+function selectEdge(id){selected={type:'edge',id};paperLimit=20;openDetail();syncGraphEdges();applyHighlight();renderDetail();$('#tooltip').hidden=true;}
 function openDetail(){if($('#detail-panel').hidden){lastFocusElement=document.activeElement;lastFocusPerson=lastFocusElement?.dataset?.person;}$('#detail-panel').hidden=false;$('#workspace').classList.add('has-detail');requestAnimationFrame(()=>$('#close-detail').focus({preventScroll:true}));}
-function closeDetail(){selected=null;$('#detail-panel').hidden=true;$('#workspace').classList.remove('has-detail');if(cy)applyHighlight();if(lastFocusPerson)document.querySelector(`[data-person="${CSS.escape(lastFocusPerson)}"]`)?.focus({preventScroll:true});else if(lastFocusElement?.isConnected&&lastFocusElement!==document.body)lastFocusElement.focus({preventScroll:true});lastFocusElement=null;lastFocusPerson=null;}
+function closeDetail(){selected=null;$('#detail-panel').hidden=true;$('#workspace').classList.remove('has-detail');if(cy){syncGraphEdges();applyHighlight();}if(lastFocusPerson)document.querySelector(`[data-person="${CSS.escape(lastFocusPerson)}"]`)?.focus({preventScroll:true});else if(lastFocusElement?.isConnected&&lastFocusElement!==document.body)lastFocusElement.focus({preventScroll:true});lastFocusElement=null;lastFocusPerson=null;}
 function renderDetail(){
   if(!selected)return;
   const container=$('#detail-content');
@@ -141,6 +170,8 @@ function resetFilters(){state={...state,from:data.metadata.minYear,to:data.metad
 function setMode(mode,focusSelected=false){const p=selected?.type==='node'?selected.id:null;state.mode=mode;state.focusId=null;cy.nodes().forEach(n=>{const person=indexes.nodes.get(n.id());n.position(mode==='lineage'?(person.lineagePosition??person.position):person.position);});syncControls();updateView({fit:true});if(focusSelected&&p&&view.visibleIds.has(p)){selected={type:'node',id:p};detailTab='relations';renderDetail();applyHighlight();const n=cy.getElementById(p);cy.fit(n.closedNeighborhood(),100);cy.zoom(Math.min(cy.zoom(),1.3));cy.center(n);}}
 function renderAbout(){const m=data.metadata;$('#about-content').innerHTML=`<table class="data-table"><tbody><tr><th>調査日</th><td>${m.snapshotDate}</td></tr><tr><th>研究者</th><td>${number(m.counts.researchers)}人</td></tr><tr><th>対象論文</th><td>${number(m.counts.works)}件</td></tr><tr><th>指導関係</th><td>${m.counts.advisorships}件</td></tr><tr><th>研究室 / 研究課題</th><td>${m.counts.labs} / ${m.counts.projects}件</td></tr></tbody></table><h3>対象範囲</h3><ul>${m.notes.map(n=>`<li>${escape(n)}</li>`).join('')}</ul><p>初版は固定データです。自動更新は行っていません。</p><h3>起点研究者</h3><div class="seed-list">${data.researchers.filter(p=>p.seed).map(p=>escape(p.name)).join(' / ')}</div><h3>データの取得と選定</h3><p>起点研究者の対象論文から、共著が2件以上ある研究者を起点ごとに順に選びました。選定した研究者の対象論文を追加取得し、公式記録による人物・関係を補っています。著者数が50人を超える論文は初版のネットワーク集計から除いています。</p><p>論文の全著者は保存していますが、マップ上の表示対象は収録した研究者です。原データが分割・混同した著者は、確認できた範囲で訂正しています。</p><p>Crossrefは起点研究者の論文など19件の書誌照合に使用しました。その他の論文メタデータはOpenAlexに基づきます。</p><h3>情報源</h3><p>${link('https://openalex.org/','OpenAlex')} · ${link('https://www.crossref.org/documentation/retrieve-metadata/rest-api/','Crossref')} · ${link('https://kaken.nii.ac.jp/','KAKEN')} · ${link('https://cordis.europa.eu/','CORDIS')}</p><p>個々の根拠は人物・論文・関係の詳細に表示します。年代不明は推定で埋めていません。指導関係を共著や同研究室への所属だけから推定していません。</p><h3>図の読み方</h3><p>円は研究者、四角は研究室、菱形は研究課題。色は収録論文で最も多いテーマです。点の大きさは研究者の評価を表しません。系譜の矢印は指導教員から学生に向かいます。</p><p>年代フィルターは論文の出版年、指導の記録年、研究室の確認できた在籍年、課題の実施期間に適用します。所属期間の「?」は不明を表します。</p>`;}
 function attachEvents(){
+  $('#edge-density').onchange=()=>{syncGraphEdges();applyHighlight();};
+  document.addEventListener('toggle',e=>{if(e.target.matches('details[data-work]')&&e.target.open)loadPaperEvidence(e.target);},true);
   $('#search').addEventListener('keydown',e=>{if(['ArrowDown','Enter'].includes(e.key)){const first=$('#people-list button');if(first){e.preventDefault();if(e.key==='Enter')selectNode(first.dataset.person);else first.focus();}}});
   $('#people-list').addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();(e.key==='ArrowDown'?e.target.nextElementSibling:e.target.previousElementSibling)?.focus();}});
   $('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(renderPeople,80);});$('#clear-search').onclick=()=>{$('#search').value='';renderPeople();$('#search').focus();};
@@ -158,7 +189,7 @@ function attachEvents(){
   document.addEventListener('click',e=>{const btn=e.target.closest('[data-person],[data-edge],[data-tab],[data-focus],[data-show-lineage],[data-more]');if(!btn)return;if(btn.dataset.person)selectNode(btn.dataset.person);else if(btn.dataset.edge)selectEdge(btn.dataset.edge);else if(btn.dataset.tab){detailTab=btn.dataset.tab;paperLimit=20;renderDetail();$('#detail-content').querySelector(`[data-tab="${detailTab}"]`)?.focus({preventScroll:true});}else if(btn.dataset.focus){state.focusId=btn.dataset.focus;updateView({fit:true});}else if(btn.hasAttribute('data-show-lineage'))setMode('lineage',true);else if(btn.hasAttribute('data-more')){const top=$('#detail-content').scrollTop;paperLimit+=20;renderDetail();$('#detail-content').scrollTop=top;}});
 }
 async function start(){
-  try{const res=await fetch('./data/dataset.json');if(!res.ok)throw Error('Dataset unavailable');data=await res.json();indexes=makeIndexes(data);state={from:data.metadata.minYear,to:data.metadata.maxYear,includeUnknown:true,topics:[],kinds:['coauthor'],mode:'network',focusId:null};renderFilters();renderAbout();initGraph();attachEvents();updateView({fit:true});$('#loading').hidden=true;document.body.dataset.ready='true';}
+  try{const res=await fetch('./data/dataset.json');if(!res.ok)throw Error('Dataset unavailable');data=await res.json();indexes=makeIndexes(data);loadPaper=createPaperLoader(indexes.works,async shard=>{const res=await fetch(`./data/works/${shard}.json`);if(!res.ok)throw Error('Paper details unavailable');return res.json();});state={from:data.metadata.minYear,to:data.metadata.maxYear,includeUnknown:true,topics:[],kinds:['coauthor'],mode:'network',focusId:null};renderFilters();renderAbout();initGraph();attachEvents();updateView({fit:true});$('#loading').hidden=true;document.body.dataset.ready='true';}
   catch(error){$('#loading').innerHTML='<h2>データを読み込めませんでした</h2><p>ページを再読み込みしてください。</p><button class="button" id="reload">再読み込み</button>';$('#reload').onclick=()=>location.reload();console.error(error);}
 }
 start();

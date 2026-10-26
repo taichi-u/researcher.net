@@ -40,7 +40,7 @@ function renderPeople(){
   status(`${results.length}人の研究者`);
 }
 function graphStyle(zoom=1){const scale=1/zoom;return [
-  {selector:'node',style:{'background-color':'data(color)','width':7*scale,'height':7*scale,'border-width':1,'border-color':'#fcfbf7','label':'','font-family':'system-ui, -apple-system, sans-serif','font-size':11*scale,'color':'#343d3a','text-valign':'bottom','text-margin-y':6*scale,'text-background-color':'#f7f6f0','text-background-opacity':.92,'text-background-padding':2*scale,'text-wrap':'wrap','text-max-width':150*scale,'z-index':5}},
+  {selector:'node',style:{'background-color':'data(color)','width':7*scale,'height':7*scale,'border-width':1,'border-color':'#fcfbf7','label':'','text-events':'yes','font-family':'system-ui, -apple-system, sans-serif','font-size':11*scale,'color':'#343d3a','text-valign':'bottom','text-margin-y':6*scale,'text-background-color':'#f7f6f0','text-background-opacity':.92,'text-background-padding':2*scale,'text-wrap':'wrap','text-max-width':150*scale,'z-index':5}},
   {selector:'node[seed]',style:{'label':'data(shortName)','font-size':12*scale,'font-weight':500,'text-background-opacity':1,'z-index-compare':'manual','z-index':20}},
   {selector:'node[kind = "lab"]',style:{shape:'rectangle',width:13*scale,height:13*scale,'background-color':'#f7f6f0','border-color':'#5d6562','border-width':1.5,label:'data(label)','font-size':11*scale}},
   {selector:'node[kind = "project"]',style:{shape:'diamond',width:16*scale,height:16*scale,'background-color':'#f7f6f0','border-color':'#5d6562','border-width':1.5,label:'data(label)','font-size':11*scale}},
@@ -50,6 +50,7 @@ function graphStyle(zoom=1){const scale=1/zoom;return [
   {selector:'.lineage-node',style:{label:'data(label)',width:9*scale,height:9*scale,'font-size':12*scale,'text-max-width':160}},
   {selector:'node.zoom-label',style:{label:'data(label)'}},
   {selector:'.dimmed',style:{opacity:.13}},
+  {selector:'edge.dimmed',style:{events:'no'}},
   {selector:'.search-muted',style:{opacity:.13}},
   {selector:'node.neighbor',style:{label:'',opacity:1,'z-index':10}},
   {selector:'node.neighbor.zoom-label, node.neighbor.lineage-node',style:{label:'data(label)'}},
@@ -60,8 +61,9 @@ function graphStyle(zoom=1){const scale=1/zoom;return [
 function initGraph(){
   cy=cytoscape({container:$('#graph'),elements:[],style:graphStyle(),layout:{name:'preset'},minZoom:.08,maxZoom:4,wheelSensitivity:.18,boxSelectionEnabled:false,autoungrabify:false,selectionType:'single',pixelRatio:Math.min(window.devicePixelRatio||1,2)});
   cy.on('tap','node',e=>selectNode(e.target.id(),false));
-  cy.on('tap','edge',e=>selectEdge(e.target.id()));
-  cy.on('tap',e=>{if(e.target===cy){selected=null;closeDetail();applyHighlight();}});
+  cy.on('tap','edge',e=>{if(!e.target.hasClass('dimmed'))selectEdge(e.target.id());});
+  // Background taps preserve the current reading context, including taps on muted edges.
+  // The explicit close button clears the selection.
   cy.on('mouseover','node, edge',e=>showTooltip(e));
   cy.on('mouseout','node, edge',()=>{tooltipTimer=setTimeout(()=>$('#tooltip').hidden=true,220);});
   cy.on('pan zoom',()=>{$('#tooltip').hidden=true;cy.nodes().toggleClass('zoom-label',cy.zoom()>1.1);});
@@ -93,6 +95,7 @@ function applyHighlight(){
 }
 function showTooltip(e){
   clearTimeout(tooltipTimer);const el=e.target,tip=$('#tooltip');
+  if(el.isEdge()&&el.hasClass('dimmed'))return;
   if(el.isNode()){const p=indexes.nodes.get(el.id());tip.innerHTML=`<strong>${escape(p.name)}</strong>${p.kind?`<p>${p.kind==='lab'?'研究室':'研究課題'}</p>`:`<div>${escape(affiliationLabel(p))}</div><p>${escape(p.topics.slice(0,3).map(topicName).join(' / ')||'テーマ未収録')}</p>`}`;}
   else {const r=view.edges.find(r=>r.id===el.id());tip.innerHTML=`<strong>${escape(personName(r.source))} — ${escape(personName(r.target))}</strong><div>${r.kind==='coauthor'?`${periodYears(r.years)} · 共著${r.count}件`:`${kindLabels[r.kind]} · ${relationshipPeriod(r)}`}</div><p>${r.kind==='coauthor'?escape(r.topics.slice(0,3).map(topicName).join(' / ')):escape(roleName(r.role??''))}</p>`;}
   tip.hidden=false;const pos=e.renderedPosition??el.renderedPosition?.()??{x:100,y:100};const stage=$('#map-stage');tip.style.left=Math.min(Math.max(8,pos.x+15),stage.clientWidth-tip.offsetWidth-10)+'px';tip.style.top=Math.min(Math.max(8,pos.y+15),stage.clientHeight-tip.offsetHeight-10)+'px';

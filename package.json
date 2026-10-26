@@ -9,6 +9,7 @@
     "generate": "node site/scripts/generate.mjs",
     "build": "node site/scripts/build.mjs",
     "test": "node --test site/tests/*.test.mjs",
+    "test:browser": "node site/scripts/browser-qa.mjs",
     "validate": "node site/scripts/validate.mjs",
     "crossref": "node site/scripts/crossref.mjs",
     "benchmark": "node site/scripts/benchmark.mjs",

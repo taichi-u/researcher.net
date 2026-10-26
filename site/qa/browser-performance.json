@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-26",
+  "baselineCommit": "e3a43d3",
+  "scope": "50 programmatic zoom/pan steps, one requestAnimationFrame per step; includes JS and frame scheduling, not a GPU paint-completion measurement. Single runs; timings vary by machine.",
+  "baseline": {
+    "environment": "Chrome, 1440x900, DPR 2, CDP CPU throttle 4x",
+    "initial": {
+      "readyMs": 2221.4000000953674,
+      "updateMs": 393.3,
+      "nodes": 296,
+      "edges": 1704
+    },
+    "frames": {
+      "medianMs": 221.69999980926514,
+      "p95Ms": 288.5,
+      "maxMs": 298.90000009536743
+    },
+    "selected": {
+      "active": 77,
+      "dimmedClickable": 1627
+    },
+    "errors": []
+  },
+  "after": {
+    "environment": "Chrome; 1440×900; DPR 2; CDP CPU throttle 4×",
+    "browserVersion": "155.0.8059.81",
+    "node": "v22.14.0",
+    "initial": {
+      "updateMs": 257.5,
+      "nodes": 296,
+      "edges": 460,
+      "catalogBytes": 3529309
+    },
+    "frames": {
+      "medianMs": 16.699999809265137,
+      "p95Ms": 18,
+      "maxMs": 27.40000009536743
+    },
+    "allEdges": 1704,
+    "interaction": {
+      "active": 77,
+      "muted": 431,
+      "mutedClickable": 0,
+      "activeClickable": true,
+      "nameClicks": true
+    },
+    "detailRequests": 1,
+    "filtered": "117人207共著関係383論文",
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mapHeightWithDetail": 178.28125,
+      "overflow": false
+    },
+    "errors": []
+  },
+  "fixture400": {
+    "environment": "Chrome; 1440×900; DPR 2; CDP CPU throttle 4×",
+    "browserVersion": "155.0.8059.81",
+    "node": "v22.14.0",
+    "initial": {
+      "updateMs": 308.1,
+      "nodes": 400,
+      "edges": 677,
+      "catalogBytes": 7129425
+    },
+    "frames": {
+      "medianMs": 16.699999809265137,
+      "p95Ms": 20.40000009536743,
+      "maxMs": 26.300000190734863
+    },
+    "allEdges": 3579,
+    "interaction": {
+      "active": 110,
+      "muted": 645,
+      "mutedClickable": 0,
+      "activeClickable": true,
+      "nameClicks": true
+    },
+    "detailRequests": 1,
+    "filtered": "182人495共著関係861論文",
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mapHeightWithDetail": 178.28125,
+      "overflow": false
+    },
+    "errors": []
+  },
+  "dataBytes": {
+    "before": 10709136,
+    "initialCatalog": 3529309,
+    "font": 76260
+  }
+}

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
-import {classify,abstractText,dedupeWorks,shortId} from '../web/domain.js';
+import {classify,abstractText,dedupeWorks,shortId,publicationEra} from '../web/domain.js';
 const date='2026-10-28',target=3000;
 const read=async name=>JSON.parse(await fs.readFile(`site/data/${name}.json`,'utf8'));
 const [previous,raw,overrides,hints]=await Promise.all(['dataset','raw-works','overrides','expansion-historical'].map(read));
@@ -39,15 +39,15 @@ for(const work of relevant){
   const topics=topicsFor(work);
   for(const author of work.authorships){const id=canonical(author.author.id);if(!/^A\d+$/.test(id)||excluded.has(id)||['A9999999999','A5317838346'].includes(id))continue;
     if(!authors.has(id))authors.set(id,{id,name:author.author.display_name,orcid:author.author.orcid??null,n:0,topics:new Set(),eras:new Set(),institutions:new Map()});
-    const entry=authors.get(id);entry.n++;topics.forEach(t=>entry.topics.add(t));entry.eras.add(work.publication_year<1977?'early':work.publication_year<2000?'middle':'recent');
+    const entry=authors.get(id);entry.n++;topics.forEach(t=>entry.topics.add(t));entry.eras.add(publicationEra(work.publication_year));
     for(const institution of author.institutions??[])entry.institutions.set(institution.id,institution);
   }
 }
 const originalIds=previous.metadata.expansion?.originalIds??previous.researchers.filter(p=>p.openalex).map(p=>p.openalex);
 const curatedOnly=previous.researchers.filter(p=>!p.openalex).length;
 const chosen=new Set(originalIds),requiredHistorical=[];
-for(const work of relevant.filter(w=>w.publication_year<1977))for(const a of work.authorships){const id=canonical(a.author.id);if(authors.has(id)){chosen.add(id);requiredHistorical.push(id);}}
-const queues=[...new Set(relevant.flatMap(topicsFor))].flatMap(topic=>['early','middle','recent'].map(era=>[...authors.values()].filter(a=>a.n>=2&&a.topics.has(topic)&&a.eras.has(era)).sort((a,b)=>b.n-a.n||a.id.localeCompare(b.id))));
+for(const work of relevant.filter(w=>Number.isFinite(w.publication_year)&&w.publication_year<1977))for(const a of work.authorships){const id=canonical(a.author.id);if(authors.has(id)){chosen.add(id);requiredHistorical.push(id);}}
+const queues=[...new Set(relevant.flatMap(topicsFor))].flatMap(topic=>['early','middle','recent','unknown'].map(era=>[...authors.values()].filter(a=>a.n>=2&&a.topics.has(topic)&&a.eras.has(era)).sort((a,b)=>b.n-a.n||a.id.localeCompare(b.id))));
 while(chosen.size<target-curatedOnly){let progressed=false;for(const queue of queues){while(queue.length&&chosen.has(queue[0].id))queue.shift();if(queue.length){chosen.add(queue.shift().id);progressed=true;}if(chosen.size>=target-curatedOnly)break;}if(!progressed)break;}
 if(chosen.size<target-curatedOnly)throw Error(`Only ${chosen.size} eligible IDs; previous snapshot retained.`);
 const selected=[...chosen].map(id=>{const a=authors.get(id);if(!a)throw Error(`Missing original author ${id}`);return {id,name:a.name,orcid:a.orcid,n:a.n,seeds:[],institutions:[...a.institutions.values()]};});

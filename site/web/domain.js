@@ -40,6 +40,10 @@ export function classify(title, abstract='') {
   if(/asteroid|comet/i.test(title) && !/orbit|trajectory|spacecraft|mission|transfer|dynamics|control|navigation|rendezvous|gravity|proximity|mapping|landing/i.test(title)) return [];
   return TOPICS.filter(t=>t.pattern.test(text)).map(t=>t.id);
 }
+export function publicationEra(year){
+  if(!Number.isFinite(year))return 'unknown';
+  return year<1977?'early':year<2000?'middle':'recent';
+}
 export function inPeriod(start,end,from,to,includeUnknown=true) {
   if(start==null && end==null) return includeUnknown;
   return (start??end)<=to && (end??start)>=from;

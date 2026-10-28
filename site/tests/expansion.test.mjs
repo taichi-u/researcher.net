@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import {TOPICS,classify} from '../web/domain.js';
+import {TOPICS,classify,publicationEra} from '../web/domain.js';
 import {scalablePositions} from '../scripts/layout.mjs';
 import {makeEdgeLevels,renderEdges} from '../web/graph-policy.js';
 const read=async name=>JSON.parse(await fs.readFile(new URL(`../data/${name}.json`,import.meta.url),'utf8'));
@@ -31,4 +31,10 @@ test('large layout is deterministic and overview keeps connected researchers',()
   const overview=renderEdges(edges,makeEdgeLevels(edges,{overviewDegree:1}));
   assert.equal(new Set(overview.flatMap(e=>[e.source,e.target])).size,3000);
   assert.ok(overview.length<edges.length);
+});
+
+test('undated works are never counted as historical works when selecting researchers',()=>{
+  assert.equal(publicationEra(null),'unknown');assert.equal(publicationEra(undefined),'unknown');
+  assert.equal(publicationEra(1962),'early');assert.equal(publicationEra(1990),'middle');
+  assert.equal(publicationEra(2026),'recent');
 });

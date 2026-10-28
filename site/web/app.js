@@ -72,7 +72,7 @@ function graphStyle(zoom=1){const scale=1/zoom,dot=data?.researchers.length>600?
   {selector:'edge.selected-edge',style:{'curve-style':'bezier',label:'data(shortLabel)','font-family':'system-ui, sans-serif','font-size':11*scale,'color':'#252831','text-background-color':'#ffffff','text-background-opacity':1,'text-background-padding':5,'text-rotation':'autorotate','line-color':'#274c77','target-arrow-color':'#274c77',opacity:1,'z-index':12}}
 ];}
 function initGraph(){
-  cy=cytoscape({container:$('#graph'),elements:[],style:graphStyle(),layout:{name:'preset'},minZoom:.08,maxZoom:4,wheelSensitivity:.18,boxSelectionEnabled:false,autoungrabify:true,selectionType:'single',hideEdgesOnViewport:true,pixelRatio:Math.min(window.devicePixelRatio||1,1.5)});
+  cy=cytoscape({container:$('#graph'),elements:[],style:graphStyle(),layout:{name:'preset'},minZoom:.08,maxZoom:4,wheelSensitivity:.18,boxSelectionEnabled:false,autoungrabify:true,selectionType:'single',hideEdgesOnViewport:true,textureOnViewport:true,pixelRatio:data.researchers.length>600?1:Math.min(window.devicePixelRatio||1,1.5)});
   cy.on('tap','node',e=>selectNode(e.target.id(),false));
   cy.on('tap','edge',e=>{if(!e.target.hasClass('dimmed'))selectEdge(e.target.id());});
   // Background taps preserve the current reading context, including taps on muted edges.
@@ -81,7 +81,7 @@ function initGraph(){
   cy.on('mouseout','node, edge',()=>{tooltipTimer=setTimeout(()=>$('#tooltip').hidden=true,220);});
   cy.on('pan zoom',()=>{$('#tooltip').hidden=true;});
   // Let the canvas transform during a gesture. Recalculate styles/detail once it settles.
-  cy.on('zoom',()=>{$('#graph').dataset.viewportBusy='true';clearTimeout(zoomTimer);zoomTimer=setTimeout(settleViewport,160);});
+  cy.on('pan zoom',()=>{$('#graph').dataset.viewportBusy='true';clearTimeout(zoomTimer);zoomTimer=setTimeout(settleViewport,160);});
   new ResizeObserver(()=>cy.resize()).observe($('#graph'));
 }
 const fitPadding=preferred=>Math.min(preferred,cy.width()*.12,cy.height()*.12);
@@ -94,7 +94,8 @@ function settleViewport(){
 function edgeElement(e){return {data:{id:e.id,source:e.source,target:e.target,kind:e.kind,count:e.count,width:e.kind==='coauthor'?Math.min(.65+Math.log2(e.count+1)*.55,3.5):1,shortLabel:e.kind==='coauthor'?`${e.topics.slice(0,2).map(topicName).join(' / ')} · ${e.count}件`:`${kindLabels[e.kind]} · ${relationshipPeriod(e)}`}};}
 function syncGraphEdges(){
   if(!view)return;
-  const edges=renderEdges(view.edges,edgeLevels,{density:$('#edge-density').value,zoomRatio:cy.zoom()/overviewZoom,selected,focusId:state.focusId});
+  const extent=cy.extent(),viewportIds=view.people.length>600?new Set(cy.nodes().filter(n=>{const p=n.position();return p.x>=extent.x1-80&&p.x<=extent.x2+80&&p.y>=extent.y1-80&&p.y<=extent.y2+80;}).map(n=>n.id())):null;
+  const edges=renderEdges(view.edges,edgeLevels,{density:$('#edge-density').value,zoomRatio:cy.zoom()/overviewZoom,selected,focusId:state.focusId,viewportIds});
   const ids=new Set(edges.map(e=>e.id)),added=[];
   cy.batch(()=>{
     cy.edges().filter(e=>!ids.has(e.id())).remove();

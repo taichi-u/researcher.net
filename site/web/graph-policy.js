@@ -10,10 +10,10 @@ export function makeEdgeLevels(edges,{overviewDegree=2}={}){
   }
   return {overview,medium};
 }
-export function renderEdges(edges,levels,{density='auto',zoomRatio=1,selected=null,focusId=null}={}){
-  if(density==='all'||focusId||zoomRatio>=3.2)return edges;
+export function renderEdges(edges,levels,{density='auto',zoomRatio=1,selected=null,focusId=null,viewportIds=null}={}){
+  if(density==='all'||focusId||(zoomRatio>=3.2&&!viewportIds))return edges;
   const level=zoomRatio>=1.8?levels.medium:levels.overview;
-  return edges.filter(e=>e.kind!=='coauthor'||level.has(e.id)||
+  return edges.filter(e=>e.kind!=='coauthor'||(zoomRatio>=3.2?viewportIds.has(e.source)||viewportIds.has(e.target):level.has(e.id))||
     (selected?.type==='node'&&(e.source===selected.id||e.target===selected.id))||
     (selected?.type==='edge'&&e.id===selected.id));
 }

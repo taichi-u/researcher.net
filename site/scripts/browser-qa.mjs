@@ -20,6 +20,10 @@ try{
   await page.waitForFunction(()=>document.querySelector('#graph').dataset.viewportBusy!=='true');
   assert.equal(detailRequests.length,0,'paper evidence must not load on startup');
   const initial=await page.evaluate(()=>{const cy=document.querySelector('#graph')._cyreg.cy;return {updateMs:Number(document.querySelector('#map-counts').dataset.renderMs),nodes:cy.nodes().length,edges:cy.edges().length,catalogBytes:performance.getEntriesByType('resource').find(r=>r.name.endsWith('/data/dataset.json'))?.decodedBodySize};});
+  assert.equal(await page.locator('#people-list .person-row').count(),100);
+  await page.locator('[data-more-people]').click();
+  assert.equal(await page.locator('#people-list .person-row').count(),200);
+  await page.locator('#people-list').evaluate(el=>el.scrollTop=0);
   await page.screenshot({path:path.join(output,'overview.png')});
   const frames=await page.evaluate(async()=>{
     const cy=document.querySelector('#graph')._cyreg.cy,durations=[];let last=performance.now();
@@ -61,10 +65,11 @@ try{
     const cy=document.querySelector('#graph')._cyreg.cy;
     const distance=(p,a,b)=>{const dx=b.x-a.x,dy=b.y-a.y,t=Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy||1)));return Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy);};
     const active=cy.edges('.edge-active').map(e=>[e.source().renderedPosition(),e.target().renderedPosition()]);
+    const boxes=cy.nodes().map(n=>n.renderedBoundingBox({includeLabels:true,includeOverlays:false}));
     for(const e of cy.edges('.dimmed')){
       const a=e.source().renderedPosition(),b=e.target().renderedPosition(),p={x:(a.x+b.x)/2,y:(a.y+b.y)/2};
       if(p.x<20||p.x>cy.width()-80||p.y<70||p.y>cy.height()-70)continue;
-      if(cy.nodes().some(n=>Math.hypot(n.renderedPosition().x-p.x,n.renderedPosition().y-p.y)<22))continue;
+      if(boxes.some(b=>p.x>=b.x1-8&&p.x<=b.x2+8&&p.y>=b.y1-8&&p.y<=b.y2+8))continue;
       if(active.some(([a,b])=>distance(p,a,b)<12))continue;
       return p;
     }
@@ -79,11 +84,12 @@ try{
   await page.screenshot({path:path.join(output,'selection.png')});
   const activePoint=await page.evaluate(()=>{
     const cy=document.querySelector('#graph')._cyreg.cy;
+    const boxes=cy.nodes().map(n=>n.renderedBoundingBox({includeLabels:true,includeOverlays:false}));
     for(const edge of cy.edges('.edge-active')){
       const a=edge.source().renderedPosition(),b=edge.target().renderedPosition();
       for(const t of [.5,.65,.35]){const p={x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t};
         if(p.x<20||p.x>cy.width()-80||p.y<70||p.y>cy.height()-70)continue;
-        if(cy.nodes().some(n=>Math.hypot(n.renderedPosition().x-p.x,n.renderedPosition().y-p.y)<22))continue;
+        if(boxes.some(b=>p.x>=b.x1-8&&p.x<=b.x2+8&&p.y>=b.y1-8&&p.y<=b.y2+8))continue;
         return p;
       }
     }
@@ -115,6 +121,30 @@ try{
   await page.locator('#search').fill('zzzz-no-matching-author');
   await page.waitForFunction(()=>document.querySelector('#result-count').textContent==='0');
   await page.locator('#clear-search').click();
+  await page.locator('#reset-filters').click();
+  const beyond=await page.evaluate(()=>document.querySelector('#graph')._cyreg.cy.nodes().map(n=>n.data('label')).sort().at(-1));
+  await page.locator('#search').fill(beyond);
+  await page.waitForFunction(name=>[...document.querySelectorAll('#people-list .person-row strong')].some(el=>el.textContent===name),beyond);
+  await page.locator('#search').fill('Henri Poincare');
+  await page.waitForFunction(()=>document.querySelector('#people-list .person-row strong')?.textContent.includes('Poincar'));
+  await page.locator('#search').press('Enter');
+  await page.locator('[data-tab="papers"]').click();
+  assert.ok((await page.locator('#detail-content').innerText()).includes('1892'));
+  await page.locator('.paper details summary').first().click();
+  await page.waitForSelector('.paper-evidence a:text("原典・所蔵機関の書誌")');
+  const historical=await page.locator('.detail-name').textContent();
+  assert.ok(await page.evaluate(()=>{const cy=document.querySelector('#graph')._cyreg.cy;cy.center(cy.nodes().filter(n=>n.data('label')==='Daniel J. Scheeres'));return document.querySelector('#graph').dataset.viewportBusy==='true';}));
+  await page.waitForFunction(()=>document.querySelector('#graph').dataset.viewportBusy==='false');
+  const viewportPan=await page.evaluate(()=>{const cy=document.querySelector('#graph')._cyreg.cy;return {edges:cy.edges().length,centeredRelations:cy.nodes().filter(n=>n.data('label')==='Daniel J. Scheeres').connectedEdges().length};});
+  assert.ok(viewportPan.centeredRelations>0);assert.ok(viewportPan.edges<allEdges);
+  await page.locator('#close-detail').click();
+  await page.locator('#reset-filters').click();
+  await page.locator('[name=topic][value=navigation]').check();
+  await page.locator('#year-from').fill('1892');await page.locator('#year-from').press('Tab');
+  await page.locator('#year-to').fill('1976');await page.locator('#year-to').press('Tab');
+  await page.waitForFunction(()=>document.querySelector('#period-summary').textContent==='1892–1976');
+  const historicalFiltered=await page.locator('#map-counts').innerText();
+  assert.ok(await page.locator('#people-list .person-row').count()>0);
   const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:2});
   mobile.on('pageerror',e=>errors.push(e.message));
   await mobile.goto(process.env.RESEARCHER_QA_URL??'http://127.0.0.1:4173');
@@ -135,7 +165,7 @@ try{
   const mobileResult={width:390,height:844,mapHeightWithDetail:mapBounds.height,overflow:false};
   await mobile.close();
   assert.deepEqual(errors,[]);
-  const report={environment:'Chrome; 1440×900; DPR 2; CDP CPU throttle 4×',browserVersion:browser.version(),node:process.version,initial,frames,allEdges,interaction,detailRequests:detailRequests.length,filtered,mobile:mobileResult,errors};
+  const report={environment:'Chrome; 1440×900; DPR 2; CDP CPU throttle 4×',browserVersion:browser.version(),node:process.version,initial,frames,allEdges,interaction,detailRequests:detailRequests.length,filtered,historical,historicalFiltered,viewportPan,pagination:{initial:100,expanded:200,offPageSearch:beyond},mobile:mobileResult,errors};
   await fs.writeFile(path.join(output,'report.json'),JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify(report,null,2));
 }catch(error){

@@ -31,6 +31,13 @@ test('large layout is deterministic and overview keeps connected researchers',()
   const overview=renderEdges(edges,makeEdgeLevels(edges,{overviewDegree:1}));
   assert.equal(new Set(overview.flatMap(e=>[e.source,e.target])).size,3000);
   assert.ok(overview.length<edges.length);
+  const levels=makeEdgeLevels(edges),viewportIds=new Set(['p:2999']);
+  const local=renderEdges(edges,levels,{zoomRatio:4,viewportIds});
+  assert.ok(local.length<edges.length/10);
+  assert.ok(local.every(e=>viewportIds.has(e.source)||viewportIds.has(e.target)));
+  const selected=renderEdges(edges,levels,{zoomRatio:4,viewportIds,selected:{type:'node',id:'p:1'}});
+  assert.ok(edges.filter(e=>e.source==='p:1'||e.target==='p:1').every(e=>selected.includes(e)));
+  assert.equal(renderEdges(edges,levels,{zoomRatio:4,viewportIds,density:'all'}).length,edges.length);
 });
 
 test('undated works are never counted as historical works when selecting researchers',()=>{

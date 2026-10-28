@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-28",
+  "comparisonBefore": {
+    "environment": "Chrome; 1440×900; DPR 2; CDP CPU throttle 4×",
+    "browserVersion": "156.0.8078.49",
+    "node": "v22.14.0",
+    "initial": {
+      "updateMs": 840.6,
+      "nodes": 3000,
+      "edges": 2716,
+      "catalogBytes": 6890982
+    },
+    "frames": {
+      "medianMs": 104.80000019073486,
+      "p95Ms": 124.09999990463257,
+      "maxMs": 198.59999990463257
+    },
+    "allEdges": 37362,
+    "interaction": {
+      "active": 349,
+      "muted": 2663,
+      "mutedClickable": 0,
+      "activeClickable": true,
+      "nameClicks": true
+    },
+    "detailRequests": 1,
+    "filtered": "326人812共著関係397論文",
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mapHeightWithDetail": 178.28125,
+      "overflow": false
+    },
+    "errors": []
+  },
+  "comparisonAfter": {
+    "environment": "Chrome; 1440×900; DPR 2; CDP CPU throttle 4×",
+    "browserVersion": "156.0.8078.49",
+    "node": "v22.14.0",
+    "initial": {
+      "updateMs": 1013.7,
+      "nodes": 3000,
+      "edges": 2716,
+      "catalogBytes": 6890982
+    },
+    "frames": {
+      "medianMs": 16.800000190734863,
+      "p95Ms": 145.19999980926514,
+      "maxMs": 157.30000019073486
+    },
+    "allEdges": 37362,
+    "interaction": {
+      "active": 349,
+      "muted": 2663,
+      "mutedClickable": 0,
+      "activeClickable": true,
+      "nameClicks": true
+    },
+    "detailRequests": 1,
+    "filtered": "326人812共著関係397論文",
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mapHeightWithDetail": 178.28125,
+      "overflow": false
+    },
+    "errors": []
+  },
+  "final": {
+    "environment": "Chrome; 1440×900; DPR 2; CDP CPU throttle 4×",
+    "browserVersion": "156.0.8078.49",
+    "node": "v22.14.0",
+    "initial": {
+      "updateMs": 2045.7,
+      "nodes": 3000,
+      "edges": 2712,
+      "catalogBytes": 6899482
+    },
+    "frames": {
+      "medianMs": 16.699999809265137,
+      "p95Ms": 17.799999713897705,
+      "maxMs": 18.09999990463257
+    },
+    "allEdges": 37316,
+    "interaction": {
+      "active": 352,
+      "muted": 2658,
+      "mutedClickable": 0,
+      "activeClickable": true,
+      "nameClicks": true
+    },
+    "detailRequests": 2,
+    "filtered": "327人817共著関係397論文",
+    "historical": "Henri Poincaré",
+    "historicalFiltered": "27人106共著関係11論文",
+    "viewportPan": {
+      "edges": 4790,
+      "centeredRelations": 352
+    },
+    "pagination": {
+      "initial": 100,
+      "expanded": 200,
+      "offPageSearch": "龍 船瀬"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "mapHeightWithDetail": 178.28125,
+      "overflow": false
+    },
+    "errors": []
+  },
+  "notes": [
+    "Before/after comparison uses the same intermediate 3000-person dataset (37362 coauthor relations).",
+    "Final data corrects unknown-year selection and contains 37316 coauthor relations.",
+    "Single-run frame intervals include JavaScript and requestAnimationFrame waiting; they do not measure completed GPU paint or guarantee frame rate.",
+    "Initial graph update remains measurable (2045.7 ms under 4x CPU throttling in the final run); source parsing/index construction are additional startup work."
+  ]
+}

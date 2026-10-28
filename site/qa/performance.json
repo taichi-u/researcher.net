@@ -1,58 +1,58 @@
 {
   "environment": "Node v22.14.0; darwin/arm64",
-  "researchers": 400,
-  "works": 10374,
+  "researchers": 3000,
+  "works": 6817,
   "scope": "Filtering and search model only; excludes browser paint",
-  "maxFilterMs": 60.76,
-  "maxSearchMs": 21.93,
+  "maxFilterMs": 146.27,
+  "maxSearchMs": 40.95,
   "runs": [
     {
-      "filterMs": 60.76,
-      "searchMs": 21.93,
-      "people": 380,
-      "edges": 3546
+      "filterMs": 146.27,
+      "searchMs": 40.95,
+      "people": 2712,
+      "edges": 36264
     },
     {
-      "filterMs": 13.03,
-      "searchMs": 3.19,
-      "people": 272,
-      "edges": 1159
+      "filterMs": 14.82,
+      "searchMs": 8.03,
+      "people": 784,
+      "edges": 4302
     },
     {
-      "filterMs": 32.73,
-      "searchMs": 3.63,
-      "people": 379,
-      "edges": 3539
+      "filterMs": 128.58,
+      "searchMs": 15.04,
+      "people": 2690,
+      "edges": 35803
     },
     {
-      "filterMs": 8.07,
-      "searchMs": 3.41,
-      "people": 272,
-      "edges": 1154
+      "filterMs": 11.49,
+      "searchMs": 6.48,
+      "people": 780,
+      "edges": 4284
     },
     {
-      "filterMs": 26.54,
-      "searchMs": 3.88,
-      "people": 379,
-      "edges": 3526
+      "filterMs": 83.58,
+      "searchMs": 13.7,
+      "people": 2654,
+      "edges": 35352
     },
     {
-      "filterMs": 5.15,
-      "searchMs": 1.67,
-      "people": 269,
-      "edges": 1128
+      "filterMs": 9.79,
+      "searchMs": 5.35,
+      "people": 756,
+      "edges": 4106
     },
     {
-      "filterMs": 38.15,
-      "searchMs": 3.56,
-      "people": 379,
-      "edges": 3449
+      "filterMs": 76.99,
+      "searchMs": 16.29,
+      "people": 2593,
+      "edges": 34563
     },
     {
-      "filterMs": 6.23,
-      "searchMs": 1.85,
-      "people": 268,
-      "edges": 1091
+      "filterMs": 9.77,
+      "searchMs": 6.15,
+      "people": 736,
+      "edges": 3922
     }
   ]
 }

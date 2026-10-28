@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "collect": "node site/scripts/collect.mjs",
-    "generate": "node site/scripts/generate.mjs",
+    "generate": "node --max-old-space-size=6144 site/scripts/generate.mjs",
     "build": "node site/scripts/build.mjs",
     "test": "node --test site/tests/*.test.mjs",
     "test:browser": "node site/scripts/browser-qa.mjs",
     "validate": "node site/scripts/validate.mjs",
     "crossref": "node site/scripts/crossref.mjs",
     "benchmark": "node site/scripts/benchmark.mjs",
-    "preview": "node site/scripts/serve.mjs"
+    "preview": "node site/scripts/serve.mjs",
+    "collect:expanded": "node --max-old-space-size=6144 site/scripts/collect-expanded.mjs"
   },
-  "dependencies": { "cytoscape": "3.33.1" }
+  "dependencies": {
+    "cytoscape": "3.33.1"
+  }
 }

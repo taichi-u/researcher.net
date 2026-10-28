@@ -1,0 +1,812 @@
+{
+  "retrieved_at": "2026-10-28T06:28:40.339Z",
+  "api_access": "OpenAlex works endpoint successfully queried without API key",
+  "raw_file": "site/data/historical-works.json",
+  "selection_notes": [
+    "No author names or author IDs have been merged or rewritten.",
+    "Book review records and duplicate near-titles were excluded.",
+    "Poincare work is a three-volume set dated 1892–1899 by ETH library; OpenAlex publication_year 1892 is the start year.",
+    "Hohmann OpenAlex year 1925 matches original print book year in WorldCat; the DOI is for digitization and does not indicate DOI registration in 1925.",
+    "General celestial-mechanics titles may need explicit historical topic inclusion because existing keyword classifier requires orbital/space context.",
+    "All records have at least one non-null OpenAlex author ID.",
+    "Siegel/Moser Lectures on Celestial Mechanics: publisher explicitly says Reprint of the 1971 Edition; current DOI landing is a 1995 reprint with 2012 ebook publication. Original-work year 1971 is retained, with the edition distinction recorded here."
+  ],
+  "selected": [
+    {
+      "id": "W2591453328",
+      "title": "Les méthodes nouvelles de la mécanique céleste",
+      "publication_year": 1892,
+      "type": "article",
+      "doi": "https://doi.org/10.3931/e-rara-421",
+      "openalex_api": "https://api.openalex.org/works/W2591453328",
+      "primary_source": "https://www.e-rara.ch/zut/doi/10.3931/e-rara-421",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5055842162",
+          "name": "Henri Poincaré"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title and ETH library catalogue identify celestial mechanics.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2505637288",
+      "title": "Celestial mechanics. A survey of the status of the determinationof the general perturbations of the minor planets, by A. O. Leuschner.",
+      "publication_year": 1922,
+      "type": "book",
+      "doi": "https://doi.org/10.5962/bhl.title.32988",
+      "openalex_api": "https://api.openalex.org/works/W2505637288",
+      "primary_source": "https://field.biodiversitylibrary.org/item/77384",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5066464747",
+          "name": "Armin Otto Leuschner"
+        }
+      ],
+      "topicHints": [
+        "celestial",
+        "smallbody"
+      ],
+      "topicHintReason": "Title and original BHL catalogue specify general perturbations of minor planets.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W1653943441",
+      "title": "Die Erreichbarkeit der Himmelskörper",
+      "publication_year": 1925,
+      "type": "book",
+      "doi": "https://doi.org/10.1515/9783486751406",
+      "openalex_api": "https://api.openalex.org/works/W1653943441",
+      "primary_source": "https://ndlsearch.ndl.go.jp/en/books/R100000002-I000006217676",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5104766899",
+          "name": "W. Hohmann"
+        }
+      ],
+      "topicHints": [
+        "interplanetary"
+      ],
+      "topicHintReason": "Original 1925 spaceflight book; library catalogue describes maneuvers transferring spacecraft between orbits.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2073688535",
+      "title": "On certain functional solutions of the satellite problem of three bodies",
+      "publication_year": 1952,
+      "type": "article",
+      "doi": "https://doi.org/10.1007/bf02392128",
+      "openalex_api": "https://api.openalex.org/works/W2073688535",
+      "primary_source": "https://doi.org/10.1007/bf02392128",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5070430849",
+          "name": "Wladimír Wáclav Heinrich"
+        }
+      ],
+      "topicHints": [
+        "multibody"
+      ],
+      "topicHintReason": "Title explicitly identifies the satellite problem of three bodies.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W2989326095",
+      "title": "On the Secular Perturbation of Asteroids",
+      "publication_year": 1954,
+      "type": "article",
+      "doi": "https://doi.org/10.1093/pasj/6.1.41",
+      "openalex_api": "https://api.openalex.org/works/W2989326095",
+      "primary_source": "https://academic.oup.com/pasj/article/6/1/41/7817996",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5111445241",
+          "name": "Yoshihide Kozai"
+        }
+      ],
+      "topicHints": [
+        "smallbody",
+        "celestial"
+      ],
+      "topicHintReason": "Title explicitly concerns secular asteroid perturbations.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2011654308",
+      "title": "Solution of the problem of artificial satellite theory without drag",
+      "publication_year": 1959,
+      "type": "article",
+      "doi": "https://doi.org/10.1086/107958",
+      "openalex_api": "https://api.openalex.org/works/W2011654308",
+      "primary_source": "https://scixplorer.org/abs/1959AJ.....64..378B/abstract",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5114248467",
+          "name": "Dirk Brouwer"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Original AJ paper develops perturbation theory for artificial satellite motion.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W1968018775",
+      "title": "The motion of a close earth satellite",
+      "publication_year": 1959,
+      "type": "article",
+      "doi": "https://doi.org/10.1086/107957",
+      "openalex_api": "https://api.openalex.org/works/W1968018775",
+      "primary_source": "https://doi.org/10.1086/107957",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5111445241",
+          "name": "Yoshihide Kozai"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title identifies motion of a close Earth satellite.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W1969750355",
+      "title": "The influence of the solar radiation pressure on the motion of an artificial satellite",
+      "publication_year": 1960,
+      "type": "article",
+      "doi": "https://doi.org/10.1029/jz065i005p01391",
+      "openalex_api": "https://api.openalex.org/works/W1969750355",
+      "primary_source": "https://doi.org/10.1029/jz065i005p01391",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5026316067",
+          "name": "Peter Musen"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title identifies solar-radiation-pressure perturbation of artificial satellite motion.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W1974759891",
+      "title": "The motion of an artificial satellite in the vicinity of the critical inclination",
+      "publication_year": 1960,
+      "type": "article",
+      "doi": "https://doi.org/10.1086/108248",
+      "openalex_api": "https://api.openalex.org/works/W1974759891",
+      "primary_source": "https://doi.org/10.1086/108248",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5085756886",
+          "name": "Gen-Ichiro Hori"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title identifies artificial-satellite dynamics near critical inclination.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W1989174900",
+      "title": "Propulsion Requirements for Controllable Satellites",
+      "publication_year": 1961,
+      "type": "article",
+      "doi": "https://doi.org/10.2514/8.5723",
+      "openalex_api": "https://api.openalex.org/works/W1989174900",
+      "primary_source": "https://doi.org/10.2514/8.5723",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5025170153",
+          "name": "Theodore N. Edelbaum"
+        }
+      ],
+      "topicHints": [
+        "lowthrust",
+        "optimization",
+        "propulsion"
+      ],
+      "topicHintReason": "OpenAlex abstract explicitly treats ion rockets, minimum-fuel maneuvers, and optimum low-thrust transfers.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W1965834973",
+      "title": "Theoretical evaluation of atmospheric drag effects in the motion of an artificial satellite",
+      "publication_year": 1961,
+      "type": "article",
+      "doi": "https://doi.org/10.1086/108399",
+      "openalex_api": "https://api.openalex.org/works/W1965834973",
+      "primary_source": "https://adsabs.harvard.edu/pdf/1961AJ.....66..193B",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5114248467",
+          "name": "Dirk Brouwer"
+        },
+        {
+          "id": "https://openalex.org/A5085756886",
+          "name": "Gen-Ichiro Hori"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title and original AJ PDF explicitly concern atmospheric-drag effects on artificial satellite motion.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2087168055",
+      "title": "Secular perturbations of asteroids with high inclination and eccentricity",
+      "publication_year": 1962,
+      "type": "article",
+      "doi": "https://doi.org/10.1086/108790",
+      "openalex_api": "https://api.openalex.org/works/W2087168055",
+      "primary_source": "https://adsabs.harvard.edu/pdf/1962aj.....67..591k",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5111445241",
+          "name": "Yoshihide Kozai"
+        }
+      ],
+      "topicHints": [
+        "smallbody",
+        "celestial"
+      ],
+      "topicHintReason": "Title and original AJ PDF explicitly concern asteroid secular perturbations.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2063480122",
+      "title": "The evolution of orbits of artificial satellites of planets under the action of gravitational perturbations of external bodies",
+      "publication_year": 1962,
+      "type": "article",
+      "doi": "https://doi.org/10.1016/0032-0633(62)90129-0",
+      "openalex_api": "https://api.openalex.org/works/W2063480122",
+      "primary_source": "https://doi.org/10.1016/0032-0633(62)90129-0",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5014733534",
+          "name": "M. L. Lidov"
+        }
+      ],
+      "topicHints": [
+        "celestial",
+        "multibody"
+      ],
+      "topicHintReason": "Title identifies gravitational perturbations of satellite orbits by external bodies.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W2001692109",
+      "title": "Optimal trajectories for space navigation",
+      "publication_year": 1963,
+      "type": "book",
+      "doi": null,
+      "openalex_api": "https://api.openalex.org/works/W2001692109",
+      "primary_source": "https://collections.si.edu/search/results.htm?q=%22Space+trajectories%22",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5040569103",
+          "name": "Derek F. Lawden"
+        }
+      ],
+      "topicHints": [
+        "optimization",
+        "navigation"
+      ],
+      "topicHintReason": "Title explicitly says optimal trajectories for space navigation; Smithsonian original-book catalogue confirms 1963.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2126097645",
+      "title": "THE N-BODY CODE - A GENERAL FORTRAN CODE FOR SOLUTION OF PROBLEMS IN SPACE MECHANICS BY NUMERICAL METHODS",
+      "publication_year": 1963,
+      "type": "article",
+      "doi": null,
+      "openalex_api": "https://api.openalex.org/works/W2126097645",
+      "primary_source": "https://ntrs.nasa.gov/citations/19630001662",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5025772717",
+          "name": "Wilbur F Dobson"
+        },
+        {
+          "id": "https://openalex.org/A5007342418",
+          "name": "V. N. Huff"
+        },
+        {
+          "id": "https://openalex.org/A5085272154",
+          "name": "William C. Strack"
+        }
+      ],
+      "topicHints": [
+        "multibody"
+      ],
+      "topicHintReason": "NASA TN-D-1455 catalogue describes astronomical integration and an N-body space-mechanics FORTRAN code.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2971175571",
+      "title": "Astronautical Guidance",
+      "publication_year": 1964,
+      "type": "book",
+      "doi": null,
+      "openalex_api": "https://api.openalex.org/works/W2971175571",
+      "primary_source": "https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/FORTRAN/spicelib/spke15.html",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5026989361",
+          "name": "Richard H. Battin"
+        }
+      ],
+      "topicHints": [
+        "navigation"
+      ],
+      "topicHintReason": "Title explicitly identifies astronautical guidance; original 1964 edition confirmed by catalogue/JPL references.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W1994006347",
+      "title": "The applicability of the third integral of motion: Some numerical experiments",
+      "publication_year": 1964,
+      "type": "article",
+      "doi": "https://doi.org/10.1086/109234",
+      "openalex_api": "https://api.openalex.org/works/W1994006347",
+      "primary_source": "https://doi.org/10.1086/109234",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5015840950",
+          "name": "M. Hénon"
+        },
+        {
+          "id": "https://openalex.org/A5030787078",
+          "name": "Carl E. Heiles"
+        }
+      ],
+      "topicHints": [],
+      "topicHintReason": "OpenAlex abstract concerns third isolating integrals in axisymmetric potentials, with galactic-study topics. No narrower astrodynamics hint assigned without further primary-context validation.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W1987174523",
+      "title": "STATISTICAL FILTERING OF SPACE NAVIGATION MEASUREMENTS",
+      "publication_year": 1964,
+      "type": "book-chapter",
+      "doi": "https://doi.org/10.1016/b978-0-12-395587-6.50032-6",
+      "openalex_api": "https://api.openalex.org/works/W1987174523",
+      "primary_source": "https://doi.org/10.1016/b978-0-12-395587-6.50032-6",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5103446940",
+          "name": "James E. Potter"
+        },
+        {
+          "id": "https://openalex.org/A5073825705",
+          "name": "Robert G. Stern"
+        }
+      ],
+      "topicHints": [
+        "navigation"
+      ],
+      "topicHintReason": "Title explicitly identifies statistical filtering of space navigation measurements.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W3013889054",
+      "title": "Effects of the Tidal Deformation of the Earth on the Motion of Close Earth Satellites",
+      "publication_year": 1965,
+      "type": "article",
+      "doi": "https://doi.org/10.1093/pasj/17.4.395",
+      "openalex_api": "https://api.openalex.org/works/W3013889054",
+      "primary_source": "https://doi.org/10.1093/pasj/17.4.395",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5111445241",
+          "name": "Yoshihide Kozai"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title explicitly identifies Earth-tide perturbations of close Earth satellite motion.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W355638855",
+      "title": "Theory of General Perturbations with Unspecified Canonical Variables",
+      "publication_year": 1966,
+      "type": "article",
+      "doi": "https://doi.org/10.1093/pasj/18.4.287",
+      "openalex_api": "https://api.openalex.org/works/W355638855",
+      "primary_source": "https://academic.oup.com/pasj/article/18/4/287/8112520",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5085756886",
+          "name": "Gen-Ichiro Hori"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Publisher abstract explicitly applies canonical perturbation theory to artificial satellite motion.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W3159771832",
+      "title": "Lectures on celestial mechanics I",
+      "publication_year": 1966,
+      "type": "article",
+      "doi": null,
+      "openalex_api": "https://api.openalex.org/works/W3159771832",
+      "primary_source": "http://ui.adsabs.harvard.edu/abs/1966lcmi.book.....K/abstract",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5110189876",
+          "name": "Paul Kustaanheimo"
+        },
+        {
+          "id": "https://openalex.org/A5011465489",
+          "name": "V. S. Nuotio"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Title explicitly identifies lectures on celestial mechanics.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W627140016",
+      "title": "Theory of Orbits.",
+      "publication_year": 1967,
+      "type": "article",
+      "doi": null,
+      "openalex_api": "https://api.openalex.org/works/W627140016",
+      "primary_source": "https://ntrs.nasa.gov/citations/19670055303",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5113460365",
+          "name": "Victor G. Szebehely"
+        }
+      ],
+      "topicHints": [
+        "multibody",
+        "celestial"
+      ],
+      "topicHintReason": "NASA catalogue describes restricted three-body dynamics, two-body dynamics, and periodic orbits.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W2038680924",
+      "title": "New periodic solutions of the plane three-body problem corresponding to elliptic motion in the lunar theory",
+      "publication_year": 1968,
+      "type": "article",
+      "doi": "https://doi.org/10.1016/0022-0396(68)90037-5",
+      "openalex_api": "https://api.openalex.org/works/W2038680924",
+      "primary_source": "https://doi.org/10.1016/0022-0396(68)90037-5",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5045417786",
+          "name": "RICHARD F. ARENSTORF"
+        }
+      ],
+      "topicHints": [
+        "multibody",
+        "celestial"
+      ],
+      "topicHintReason": "Title explicitly identifies periodic solutions of the planar three-body problem and lunar theory.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W1993145927",
+      "title": "Regularization theory for the elliptic restricted three body problem",
+      "publication_year": 1969,
+      "type": "article",
+      "doi": "https://doi.org/10.1016/0022-0396(69)90003-5",
+      "openalex_api": "https://api.openalex.org/works/W1993145927",
+      "primary_source": "https://doi.org/10.1016/0022-0396(69)90003-5",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5045417786",
+          "name": "RICHARD F. ARENSTORF"
+        }
+      ],
+      "topicHints": [
+        "multibody"
+      ],
+      "topicHintReason": "Title explicitly identifies regularization of the elliptic restricted three-body problem.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W2976807405",
+      "title": "An Encke-type special perturbation method",
+      "publication_year": 1969,
+      "type": "conference-paper",
+      "doi": "https://doi.org/10.2514/6.1969-908",
+      "openalex_api": "https://api.openalex.org/works/W2976807405",
+      "primary_source": "https://ntrs.nasa.gov/citations/19690061351",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5109333800",
+          "name": "George H. Born"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "NASA AIAA-69-908 catalogue explicitly describes integration of modified Lagrange planetary equations for satellite orbit prediction.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W1524565983",
+      "title": "Lectures on Celestial Mechanics",
+      "publication_year": 1971,
+      "type": "book",
+      "doi": "https://doi.org/10.1007/978-3-642-87284-6",
+      "openalex_api": "https://api.openalex.org/works/W1524565983",
+      "primary_source": "https://link.springer.com/book/10.1007/978-3-642-87284-6",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5113437764",
+          "name": "Carl Ludwig Siegel"
+        },
+        {
+          "id": "https://openalex.org/A5104352271",
+          "name": "Jürgen Moser"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Book title and publisher contents identify celestial mechanics, three-body motion, periodic solutions, and stability.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W3107051759",
+      "title": "Computational methods for the solution of the gravitational problem of N-bodies.",
+      "publication_year": 1971,
+      "type": "article",
+      "doi": null,
+      "openalex_api": "https://api.openalex.org/works/W3107051759",
+      "primary_source": "https://ui.adsabs.harvard.edu/abs/1971BAAS....3R.268B/abstract",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5069416623",
+          "name": "Dale G. Bettis"
+        },
+        {
+          "id": "https://openalex.org/A5068411256",
+          "name": "Otis F. Graf"
+        },
+        {
+          "id": "https://openalex.org/A5109380749",
+          "name": "C. D. Allen"
+        }
+      ],
+      "topicHints": [
+        "multibody"
+      ],
+      "topicHintReason": "Title explicitly identifies numerical solution of the gravitational N-body problem.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W117463993",
+      "title": "Integration Methods of the N-Body Problem",
+      "publication_year": 1973,
+      "type": "book-chapter",
+      "doi": "https://doi.org/10.1007/978-94-010-2611-6_20",
+      "openalex_api": "https://api.openalex.org/works/W117463993",
+      "primary_source": "https://doi.org/10.1007/978-94-010-2611-6_20",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5054612552",
+          "name": "Sverre J. Aarseth"
+        }
+      ],
+      "topicHints": [
+        "multibody"
+      ],
+      "topicHintReason": "Title explicitly identifies integration methods for the N-body problem.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    },
+    {
+      "id": "W3000878190",
+      "title": "Studies in the application of recurrence relations to special perturbation methods",
+      "publication_year": 1973,
+      "type": "article",
+      "doi": "https://doi.org/10.1007/bf01229950",
+      "openalex_api": "https://api.openalex.org/works/W3000878190",
+      "primary_source": "https://link.springer.com/article/10.1007/BF01229950",
+      "independently_checked_source": true,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5110900294",
+          "name": "Archie E. Roy"
+        },
+        {
+          "id": "https://openalex.org/A5005477687",
+          "name": "P. E. Moran"
+        }
+      ],
+      "topicHints": [
+        "celestial"
+      ],
+      "topicHintReason": "Publisher abstract explicitly describes orbital eccentricity/inclination, parabolic/hyperbolic/elliptic orbits, and Lagrange planetary equations.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": "2026-10-28",
+      "primarySourceKind": "publisher-or-official-catalogue"
+    },
+    {
+      "id": "W17066153",
+      "title": "Secular Perturbations for Asteroids Belonging to Families",
+      "publication_year": 1974,
+      "type": "conference-paper",
+      "doi": "https://doi.org/10.1017/s007418090007042x",
+      "openalex_api": "https://api.openalex.org/works/W17066153",
+      "primary_source": "https://doi.org/10.1017/s007418090007042x",
+      "independently_checked_source": false,
+      "authors": [
+        {
+          "id": "https://openalex.org/A5111445241",
+          "name": "Yoshihide Kozai"
+        },
+        {
+          "id": "https://openalex.org/A5045396436",
+          "name": "Manabu Yuasa"
+        }
+      ],
+      "topicHints": [
+        "smallbody",
+        "celestial"
+      ],
+      "topicHintReason": "Title explicitly identifies secular perturbations of asteroid families.",
+      "rawApiCheckedAt": "2026-10-28",
+      "topicHintsCheckedAt": "2026-10-28",
+      "primarySourceCheckedAt": null,
+      "primarySourceKind": "openalex-linked-source-not-independently-opened"
+    }
+  ],
+  "topicHintsSchema": {
+    "allowedTopicIds": [
+      "interplanetary",
+      "lowthrust",
+      "multibody",
+      "smallbody",
+      "relative",
+      "optimization",
+      "robust",
+      "learning",
+      "celestial",
+      "navigation",
+      "debris",
+      "entry",
+      "launch",
+      "attitude",
+      "propulsion",
+      "geodesy"
+    ],
+    "unassigned": [
+      "W1994006347"
+    ],
+    "method": "Each hint follows explicit title, retrieved abstract, or primary-source catalogue context; celestial is never a default."
+  }
+}

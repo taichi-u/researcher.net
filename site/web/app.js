@@ -9,7 +9,7 @@ const number=n=>n.toLocaleString('ja-JP');
 const kindLabels={coauthor:'共著',advisor:'指導',lab:'研究室所属',project:'研究課題への参加'};
 const roleName=role=>({advisor:'指導教員','co-advisor':'共同指導教員','Principal Investigator':'研究代表者'}[role]??role);
 const palette={interplanetary:'#436585',lowthrust:'#9B744F',multibody:'#7E7897',smallbody:'#628274',relative:'#4D8189',optimization:'#AD705F',robust:'#9A8949',learning:'#976D81',unclassified:'#8B929B'};
-let zoomTimer,renderedMode,edgeLevels,overviewZoom=1,loadPaper;
+let zoomTimer,renderedMode,edgeLevels,overviewZoom=1,loadPaper,peopleLimit=100,peopleView,peopleQuery,sortedPeople;
 let data,indexes,view,cy,state,selected=null,detailTab='overview',paperLimit=20,tooltipTimer,searchTimer,lastFocusElement=null,lastFocusPerson=null;
 const status=text=>{$('#status').textContent=text;};
 const topicName=id=>indexes.topics.get(id)?.label??id;
@@ -21,7 +21,7 @@ function affiliationLabel(p){const a=p.affiliations[0];return a?`${a.name} · ${
 function personButton(id,label){return `<button class="person-link" data-person="${escape(id)}">${escape(label??personName(id))}</button>`;}
 function paperEvidenceHTML(w){
   if(w.detailsPending)return '<p>著者・所属の詳細を読み込み中…</p>';
-  return `<ul>${w.authors.map(a=>`<li>${indexes.people.has(a.id)?personButton(a.id,a.name):escape(a.name)}${a.affiliations.length?` — ${escape(a.affiliations.map(i=>i.name).join(' / '))}`:''}</li>`).join('')}</ul>${link(w.sourceUrl,'OpenAlex 書誌レコード')}${w.crossref?'<br>'+link(w.crossref.url,'Crossref 書誌レコード'):''}`;
+  return `<ul>${w.authors.map(a=>`<li>${indexes.people.has(a.id)?personButton(a.id,a.name):escape(a.name)}${a.affiliations.length?` — ${escape(a.affiliations.map(i=>i.name).join(' / '))}`:''}</li>`).join('')}</ul>${link(w.sourceUrl,'OpenAlex 書誌レコード')}${w.crossref?'<br>'+link(w.crossref.url,'Crossref 書誌レコード'):''}${w.historicalSource?'<br>'+link(w.historicalSource.sourceUrl,'原典・所蔵機関の書誌')+`<p>${escape(w.historicalSource.note)}（確認 ${escape(w.historicalSource.checkedAt)}）</p>`:''}`;
 }
 async function loadPaperEvidence(details){
   const target=details.querySelector('.paper-evidence');
@@ -40,19 +40,21 @@ function renderFilters(){
 }
 function renderPeople(){
   const started=performance.now();
-  const sorted=[...view.people].sort((a,b)=>Number(b.seed)-Number(a.seed)||a.name.localeCompare(b.name));
-  const results=searchPeople(indexes,$('#search').value,sorted);
+  const query=$('#search').value;
+  if(peopleView!==view){peopleView=view;sortedPeople=[...view.people].sort((a,b)=>Number(b.seed)-Number(a.seed)||a.name.localeCompare(b.name));peopleLimit=100;}
+  if(peopleQuery!==query){peopleQuery=query;peopleLimit=100;}
+  const results=searchPeople(indexes,query,sortedPeople);
   $('#result-count').textContent=number(results.length);
   $('#list-caption').textContent=$('#search').value?'検索結果 · 論文数':'起点順 · 論文数';
   $('#clear-search').hidden=!$('#search').value;
-  $('#people-list').innerHTML=results.length?results.map(p=>`<button class="person-row${selected?.id===p.id?' selected':''}" data-person="${escape(p.id)}" aria-label="${escape(p.name)}の詳細"><span class="topic-dot" style="background:${palette[p.primaryTopic]}"></span><span class="row-content"><strong>${escape(p.name)}</strong><small>${escape(p.aliases.find(a=>/[\u3040-\u9fff]/.test(a))??affiliationLabel(p))}</small></span><span class="row-count" title="現在の条件に該当する収録論文数">${view.paperCounts.get(p.id)||'—'}</span></button>`).join(''):`<div class="list-empty">該当する研究者がありません。<p>氏名の別表記でも検索できます。</p></div>`;
+  $('#people-list').innerHTML=results.length?results.slice(0,peopleLimit).map(p=>`<button class="person-row${selected?.id===p.id?' selected':''}" data-person="${escape(p.id)}" aria-label="${escape(p.name)}の詳細"><span class="topic-dot" style="background:${palette[p.primaryTopic]}"></span><span class="row-content"><strong>${escape(p.name)}</strong><small>${escape(p.aliases.find(a=>/[\u3040-\u9fff]/.test(a))??affiliationLabel(p))}</small></span><span class="row-count" title="現在の条件に該当する収録論文数">${view.paperCounts.get(p.id)||'—'}</span></button>`).join('')+(results.length>peopleLimit?`<button class="button more-button" data-more-people>次の100人（残り${number(results.length-peopleLimit)}人）</button>`:''):`<div class="list-empty">該当する研究者がありません。<p>氏名の別表記でも検索できます。</p></div>`;
   if(cy){const hasQuery=!!$('#search').value,ids=new Set(results.map(p=>p.id));cy.batch(()=>{cy.nodes().forEach(n=>{const muted=hasQuery&&!ids.has(n.id());if(n.hasClass('search-muted')!==muted)n.toggleClass('search-muted',muted);});cy.edges().filter(e=>e.hasClass('search-muted')!==hasQuery).toggleClass('search-muted',hasQuery);});}
   $('#search').dataset.renderMs=(performance.now()-started).toFixed(1);
   status(`${results.length}人の研究者`);
 }
-function graphStyle(zoom=1){const scale=1/zoom;return [
-  {selector:'node',style:{'background-color':'data(color)','width':7*scale,'height':7*scale,'border-width':1,'border-color':'#ffffff','label':'','text-events':'yes','font-family':'"Source Serif 4", Georgia, serif','font-size':11*scale,'color':'#252831','text-valign':'bottom','text-margin-y':6*scale,'text-background-color':'#f6f7f9','text-background-opacity':.92,'text-background-padding':2*scale,'text-wrap':'wrap','text-max-width':150*scale,'z-index':5}},
-  {selector:'node[seed]',style:{'label':'data(shortName)','font-size':13*scale,'font-weight':400,'text-background-opacity':1,'z-index-compare':'manual','z-index':20}},
+function graphStyle(zoom=1){const scale=1/zoom,dot=data?.researchers.length>600?3.5:7;return [
+  {selector:'node',style:{'background-color':'data(color)','width':dot*scale,'height':dot*scale,'border-width':1,'border-color':'#ffffff','label':'','text-events':'yes','font-family':'"Source Serif 4", Georgia, serif','font-size':11*scale,'color':'#252831','text-valign':'bottom','text-margin-y':6*scale,'text-background-color':'#f6f7f9','text-background-opacity':.92,'text-background-padding':2*scale,'text-wrap':'wrap','text-max-width':150*scale,'z-index':5}},
+  {selector:'node[seed]',style:{width:7*scale,height:7*scale,'label':'data(shortName)','font-size':13*scale,'font-weight':400,'text-background-opacity':1,'z-index-compare':'manual','z-index':20}},
   {selector:'node[kind = "lab"]',style:{shape:'rectangle',width:13*scale,height:13*scale,'background-color':'#f6f7f9','border-color':'#626976','border-width':1.5,label:'data(label)','font-size':11*scale}},
   {selector:'node[kind = "project"]',style:{shape:'diamond',width:16*scale,height:16*scale,'background-color':'#f6f7f9','border-color':'#626976','border-width':1.5,label:'data(label)','font-size':11*scale}},
   {selector:'edge',style:{width:e=>e.data('width')*.55*Math.min(scale,5),'line-color':'#aeb9c7','opacity':.35,'curve-style':'haystack','haystack-radius':0,'z-index':1}},
@@ -63,7 +65,7 @@ function graphStyle(zoom=1){const scale=1/zoom;return [
   {selector:'.dimmed',style:{opacity:.1}},
   {selector:'edge.dimmed',style:{events:'no'}},
   {selector:'.search-muted',style:{opacity:.1}},
-  {selector:'node.neighbor',style:{label:'',opacity:1,'z-index':10}},
+  {selector:'node.neighbor',style:{width:6*scale,height:6*scale,label:'',opacity:1,'z-index':10}},
   {selector:'node.neighbor.zoom-label, node.neighbor.lineage-node',style:{label:'data(label)'}},
   {selector:'node.active',style:{label:'data(label)',opacity:1,'border-width':2.2,'border-color':'#252831',width:11*scale,height:11*scale,'font-weight':400,'font-size':13*scale,'z-index-compare':'manual','z-index':100}},
   {selector:'edge.edge-active',style:{opacity:.95,'line-color':'#274c77','target-arrow-color':'#274c77','z-index':8}},
@@ -86,7 +88,7 @@ const fitPadding=preferred=>Math.min(preferred,cy.width()*.12,cy.height()*.12);
 function fitElements(elements,padding=55){cy.fit(elements,fitPadding(padding));}
 function settleViewport(){
   clearTimeout(zoomTimer);
-  cy.batch(()=>{cy.style(graphStyle(cy.zoom()));cy.nodes().toggleClass('zoom-label',cy.zoom()/overviewZoom>=3.2);});
+  cy.batch(()=>{cy.style(graphStyle(cy.zoom()));const extent=cy.extent(),show=cy.zoom()/overviewZoom>=3.2;cy.nodes().forEach(n=>{const p=n.position();n.toggleClass('zoom-label',show&&p.x>=extent.x1&&p.x<=extent.x2&&p.y>=extent.y1&&p.y<=extent.y2);});});
   syncGraphEdges();applyHighlight();$('#graph').dataset.viewportBusy='false';
 }
 function edgeElement(e){return {data:{id:e.id,source:e.source,target:e.target,kind:e.kind,count:e.count,width:e.kind==='coauthor'?Math.min(.65+Math.log2(e.count+1)*.55,3.5):1,shortLabel:e.kind==='coauthor'?`${e.topics.slice(0,2).map(topicName).join(' / ')} · ${e.count}件`:`${kindLabels[e.kind]} · ${relationshipPeriod(e)}`}};}
@@ -104,7 +106,7 @@ function syncGraphEdges(){
   $('#graph').dataset.renderedEdges=edges.length;
 }
 function updateView({fit=false}={}){
-  const started=performance.now();view=selectView(data,state);edgeLevels=makeEdgeLevels(view.edges);
+  const started=performance.now();view=selectView(data,state);edgeLevels=makeEdgeLevels(view.edges,{overviewDegree:view.people.length>600?1:2});
   const modeChanged=renderedMode!==state.mode;
   const oldPositions=modeChanged?new Map():new Map(cy.nodes().map(n=>[n.id(),n.position()]));
   const els=[...view.people.map(p=>({data:{id:p.id,label:p.name,shortName:p.name.split(/\s+/).at(-1),color:palette[p.primaryTopic],kind:'researcher',...(p.seed?{seed:1}:{})},position:state.mode==='lineage'?(p.lineagePosition??p.position):(oldPositions.get(p.id)??p.position),classes:state.mode==='lineage'?'lineage-node':''})),...view.auxiliary.map(a=>({data:{id:a.id,label:a.name.length>45?a.name.slice(0,43)+'…':a.name,color:'#8B929B',kind:a.kind},position:auxPosition(a)}))];
@@ -117,7 +119,7 @@ function updateView({fit=false}={}){
   const coa=view.edges.filter(e=>e.kind==='coauthor').length;
   $('#map-counts').innerHTML=`<span><strong>${number(view.people.length)}</strong>人</span><span><strong>${number(state.mode==='lineage'?view.relationships.filter(r=>r.kind==='advisor').length:coa)}</strong>${state.mode==='lineage'?'指導関係':'共著関係'}</span><span><strong>${number(view.works.length)}</strong>論文</span>`;
   $('#network-mode').setAttribute('aria-pressed',state.mode==='network');$('#lineage-mode').setAttribute('aria-pressed',state.mode==='lineage');
-  $('#view-note').textContent=state.mode==='lineage'?'矢印は指導教員から学生へ。確認済みの関係のみ表示。':'配置は共著関係に基づきます。地理的位置は表しません。';
+  $('#view-note').textContent=state.mode==='lineage'?'矢印は指導教員から学生へ。確認済みの関係のみ表示。':'配置は主分野と共著関係に基づきます。距離は近さの指標ではありません。';
   $('#lab-key').hidden=!view.auxiliary.some(a=>a.kind==='lab');$('#project-key').hidden=!view.auxiliary.some(a=>a.kind==='project');
   $('#key-note').textContent=state.mode==='lineage'?'矢印：指導教員 → 学生':'線の太さ：共著件数';
   $('#period-summary').textContent=`${state.from}–${state.to}`;$('#topic-count').textContent=state.topics.length?`${state.topics.length}テーマ`:'全テーマ';
@@ -178,12 +180,13 @@ function renderAuxiliary(p){
 function syncControls(){for(const id of ['year-from','year-to'])$('#'+id).value=id==='year-from'?state.from:state.to;$('#include-unknown').checked=state.includeUnknown;for(const el of document.querySelectorAll('[name=topic]'))el.checked=state.topics.includes(el.value);for(const el of document.querySelectorAll('[name=relation]')){el.checked=state.mode==='lineage'&&el.value==='advisor'||state.kinds.includes(el.value);el.disabled=state.mode==='lineage'&&['advisor','coauthor'].includes(el.value);if(state.mode==='lineage'&&el.value==='coauthor')el.checked=false;}}
 function resetFilters(){state={...state,from:data.metadata.minYear,to:data.metadata.maxYear,includeUnknown:true,topics:[],kinds:['coauthor'],focusId:null};$('#search').value='';syncControls();updateView({fit:true});}
 function setMode(mode,focusSelected=false){const p=selected?.type==='node'?selected.id:null;state.mode=mode;state.focusId=null;cy.nodes().forEach(n=>{const person=indexes.nodes.get(n.id());n.position(mode==='lineage'?(person.lineagePosition??person.position):person.position);});syncControls();updateView({fit:true});if(focusSelected&&p&&view.visibleIds.has(p)){selected={type:'node',id:p};detailTab='relations';renderDetail();applyHighlight();const n=cy.getElementById(p);fitElements(n.closedNeighborhood(),100);cy.zoom(Math.min(cy.zoom(),1.3));cy.center(n);settleViewport();}}
-function renderAbout(){const m=data.metadata;$('#about-content').innerHTML=`<table class="data-table"><tbody><tr><th>調査日</th><td>${m.snapshotDate}</td></tr><tr><th>研究者</th><td>${number(m.counts.researchers)}人</td></tr><tr><th>対象論文</th><td>${number(m.counts.works)}件</td></tr><tr><th>指導関係</th><td>${m.counts.advisorships}件</td></tr><tr><th>研究室 / 研究課題</th><td>${m.counts.labs} / ${m.counts.projects}件</td></tr></tbody></table><h3>対象範囲</h3><ul>${m.notes.map(n=>`<li>${escape(n)}</li>`).join('')}</ul><p>初版は固定データです。自動更新は行っていません。</p><h3>起点研究者</h3><div class="seed-list">${data.researchers.filter(p=>p.seed).map(p=>escape(p.name)).join(' / ')}</div><h3>データの取得と選定</h3><p>起点研究者の対象論文から、共著が2件以上ある研究者を起点ごとに順に選びました。選定した研究者の対象論文を追加取得し、公式記録による人物・関係を補っています。著者数が50人を超える論文は初版のネットワーク集計から除いています。</p><p>論文の全著者は保存していますが、マップ上の表示対象は収録した研究者です。原データが分割・混同した著者は、確認できた範囲で訂正しています。</p><p>Crossrefは起点研究者の論文など19件の書誌照合に使用しました。その他の論文メタデータはOpenAlexに基づきます。</p><h3>情報源</h3><p>${link('https://openalex.org/','OpenAlex')} · ${link('https://www.crossref.org/documentation/retrieve-metadata/rest-api/','Crossref')} · ${link('https://kaken.nii.ac.jp/','KAKEN')} · ${link('https://cordis.europa.eu/','CORDIS')}</p><p>個々の根拠は人物・論文・関係の詳細に表示します。年代不明は推定で埋めていません。指導関係を共著や同研究室への所属だけから推定していません。</p><h3>図の読み方</h3><p>円は研究者、四角は研究室、菱形は研究課題。色は収録論文で最も多いテーマです。点の大きさは研究者の評価を表しません。系譜の矢印は指導教員から学生に向かいます。</p><p>年代フィルターは論文の出版年、指導の記録年、研究室の確認できた在籍年、課題の実施期間に適用します。所属期間の「?」は不明を表します。</p>`;}
+function renderAbout(){const m=data.metadata;$('#about-content').innerHTML=`<table class="data-table"><tbody><tr><th>調査日</th><td>${m.snapshotDate}</td></tr><tr><th>研究者</th><td>${number(m.counts.researchers)}人</td></tr><tr><th>対象論文</th><td>${number(m.counts.works)}件</td></tr><tr><th>指導関係</th><td>${m.counts.advisorships}件</td></tr><tr><th>研究室 / 研究課題</th><td>${m.counts.labs} / ${m.counts.projects}件</td></tr></tbody></table><h3>対象範囲</h3><ul>${m.notes.map(n=>`<li>${escape(n)}</li>`).join('')}</ul><p>この版は固定データです。自動更新は行っていません。</p><h3>起点研究者</h3><div class="seed-list">${data.researchers.filter(p=>p.seed).map(p=>escape(p.name)).join(' / ')}</div><h3>データの取得と選定</h3><p>元の296人を残し、12種類の書誌検索を3年代に分けて追加取得しました。1977年以前の対象文献の著者を含め、その他は対象文献が2件以上ある著者から分野・年代ごとに順に選定しています。19世紀からの古典文献は出版社・所蔵機関の書誌も確認しています。著者数が50人を超える文献はネットワーク集計から除いています。</p><p>論文の全著者は保存していますが、マップ上の表示対象は収録した研究者です。原データが分割・混同した著者は、確認できた範囲で訂正しています。</p><p>Crossrefは起点研究者の論文など19件の書誌照合に使用しました。その他の論文メタデータはOpenAlexに基づきます。</p><h3>情報源</h3><p>${link('https://openalex.org/','OpenAlex')} · ${link('https://www.crossref.org/documentation/retrieve-metadata/rest-api/','Crossref')} · ${link('https://kaken.nii.ac.jp/','KAKEN')} · ${link('https://cordis.europa.eu/','CORDIS')}</p><p>個々の根拠は人物・論文・関係の詳細に表示します。年代不明は推定で埋めていません。指導関係を共著や同研究室への所属だけから推定していません。</p><h3>図の読み方</h3><p>円は研究者、四角は研究室、菱形は研究課題。色は収録論文で最も多いテーマです。点の大きさは研究者の評価を表しません。系譜の矢印は指導教員から学生に向かいます。</p><p>年代フィルターは論文の出版年、指導の記録年、研究室の確認できた在籍年、課題の実施期間に適用します。所属期間の「?」は不明を表します。</p>`;}
 function attachEvents(){
   $('#clear-selection').onclick=()=>{closeDetail();renderPeople();};
   $('#edge-density').onchange=()=>{syncGraphEdges();applyHighlight();};
   document.addEventListener('toggle',e=>{if(e.target.matches('details[data-work]')&&e.target.open)loadPaperEvidence(e.target);},true);
   $('#search').addEventListener('keydown',e=>{if(['ArrowDown','Enter'].includes(e.key)){const first=$('#people-list button');if(first){e.preventDefault();if(e.key==='Enter')selectNode(first.dataset.person);else first.focus();}}});
+  $('#people-list').addEventListener('click',e=>{if(e.target.closest('[data-more-people]')){const top=$('#people-list').scrollTop;peopleLimit+=100;renderPeople();$('#people-list').scrollTop=top;}});
   $('#people-list').addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();(e.key==='ArrowDown'?e.target.nextElementSibling:e.target.previousElementSibling)?.focus();}});
   $('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(renderPeople,80);});$('#clear-search').onclick=()=>{$('#search').value='';renderPeople();$('#search').focus();};
   $('#topic-filters').addEventListener('change',()=>{state.topics=[...document.querySelectorAll('[name=topic]:checked')].map(e=>e.value);updateView();});
@@ -200,7 +203,7 @@ function attachEvents(){
   document.addEventListener('click',e=>{const btn=e.target.closest('[data-person],[data-edge],[data-tab],[data-focus],[data-show-lineage],[data-more]');if(!btn)return;if(btn.dataset.person)selectNode(btn.dataset.person);else if(btn.dataset.edge)selectEdge(btn.dataset.edge);else if(btn.dataset.tab){detailTab=btn.dataset.tab;paperLimit=20;renderDetail();$('#detail-content').querySelector(`[data-tab="${detailTab}"]`)?.focus({preventScroll:true});}else if(btn.dataset.focus){state.focusId=btn.dataset.focus;updateView({fit:true});}else if(btn.hasAttribute('data-show-lineage'))setMode('lineage',true);else if(btn.hasAttribute('data-more')){const top=$('#detail-content').scrollTop;paperLimit+=20;renderDetail();$('#detail-content').scrollTop=top;}});
 }
 async function start(){
-  try{const res=await fetch('./data/dataset.json');if(!res.ok)throw Error('Dataset unavailable');data=await res.json();indexes=makeIndexes(data);loadPaper=createPaperLoader(indexes.works,async shard=>{const res=await fetch(`./data/works/${shard}.json`);if(!res.ok)throw Error('Paper details unavailable');return res.json();});state={from:data.metadata.minYear,to:data.metadata.maxYear,includeUnknown:true,topics:[],kinds:['coauthor'],mode:'network',focusId:null};renderFilters();renderAbout();await document.fonts.load('16px "Source Serif 4"').catch(()=>{});initGraph();attachEvents();updateView({fit:true});$('#loading').hidden=true;document.body.dataset.ready='true';}
+  try{const res=await fetch('./data/dataset.json');if(!res.ok)throw Error('Dataset unavailable');data=await res.json();for(const t of data.topics)if(!palette[t.id])palette[t.id]=t.color;$('.snapshot').textContent=`データ ${data.metadata.snapshotDate.replaceAll('-','.')}`;indexes=makeIndexes(data);loadPaper=createPaperLoader(indexes.works,async shard=>{const res=await fetch(`./data/works/${shard}.json`);if(!res.ok)throw Error('Paper details unavailable');return res.json();});state={from:data.metadata.minYear,to:data.metadata.maxYear,includeUnknown:true,topics:[],kinds:['coauthor'],mode:'network',focusId:null};renderFilters();renderAbout();await document.fonts.load('16px "Source Serif 4"').catch(()=>{});initGraph();attachEvents();updateView({fit:true});$('#loading').hidden=true;document.body.dataset.ready='true';}
   catch(error){$('#loading').innerHTML='<h2>データを読み込めませんでした</h2><p>ページを再読み込みしてください。</p><button class="button" id="reload">再読み込み</button>';$('#reload').onclick=()=>location.reload();console.error(error);}
 }
 start();

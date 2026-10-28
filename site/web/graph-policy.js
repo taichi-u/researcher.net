@@ -1,10 +1,10 @@
 // Presentation only: counts, search and evidence always use the complete filtered view.
-export function makeEdgeLevels(edges){
+export function makeEdgeLevels(edges,{overviewDegree=2}={}){
   const ranked=[...edges].filter(e=>e.kind==='coauthor').sort((a,b)=>b.count-a.count||a.id.localeCompare(b.id));
   const degree=new Map(),overview=new Set(),medium=new Set();
   for(const e of ranked){
     const a=degree.get(e.source)??0,b=degree.get(e.target)??0;
-    if(a<2||b<2)overview.add(e.id);
+    if(a<overviewDegree||b<overviewDegree)overview.add(e.id);
     if(a<4||b<4)medium.add(e.id);
     degree.set(e.source,a+1);degree.set(e.target,b+1);
   }

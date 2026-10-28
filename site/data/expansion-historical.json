@@ -1,0 +1,273 @@
+{
+  "W2591453328": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://www.e-rara.ch/zut/doi/10.3931/e-rara-421",
+    "checkedAt": "2026-10-28",
+    "note": "Title and ETH library catalogue identify celestial mechanics.",
+    "year": 1892
+  },
+  "W2505637288": {
+    "topics": [
+      "celestial",
+      "smallbody"
+    ],
+    "sourceUrl": "https://field.biodiversitylibrary.org/item/77384",
+    "checkedAt": "2026-10-28",
+    "note": "Title and original BHL catalogue specify general perturbations of minor planets.",
+    "year": 1922
+  },
+  "W1653943441": {
+    "topics": [
+      "interplanetary"
+    ],
+    "sourceUrl": "https://ndlsearch.ndl.go.jp/en/books/R100000002-I000006217676",
+    "checkedAt": "2026-10-28",
+    "note": "Original 1925 spaceflight book; library catalogue describes maneuvers transferring spacecraft between orbits.",
+    "year": 1925
+  },
+  "W2073688535": {
+    "topics": [
+      "multibody"
+    ],
+    "sourceUrl": "https://doi.org/10.1007/bf02392128",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies the satellite problem of three bodies.",
+    "year": 1952
+  },
+  "W2989326095": {
+    "topics": [
+      "smallbody",
+      "celestial"
+    ],
+    "sourceUrl": "https://academic.oup.com/pasj/article/6/1/41/7817996",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly concerns secular asteroid perturbations.",
+    "year": 1954
+  },
+  "W2011654308": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://scixplorer.org/abs/1959AJ.....64..378B/abstract",
+    "checkedAt": "2026-10-28",
+    "note": "Original AJ paper develops perturbation theory for artificial satellite motion.",
+    "year": 1959
+  },
+  "W1968018775": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://doi.org/10.1086/107957",
+    "checkedAt": "2026-10-28",
+    "note": "Title identifies motion of a close Earth satellite.",
+    "year": 1959
+  },
+  "W1969750355": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://doi.org/10.1029/jz065i005p01391",
+    "checkedAt": "2026-10-28",
+    "note": "Title identifies solar-radiation-pressure perturbation of artificial satellite motion.",
+    "year": 1960
+  },
+  "W1974759891": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://doi.org/10.1086/108248",
+    "checkedAt": "2026-10-28",
+    "note": "Title identifies artificial-satellite dynamics near critical inclination.",
+    "year": 1960
+  },
+  "W1989174900": {
+    "topics": [
+      "lowthrust",
+      "optimization",
+      "propulsion"
+    ],
+    "sourceUrl": "https://doi.org/10.2514/8.5723",
+    "checkedAt": "2026-10-28",
+    "note": "OpenAlex abstract explicitly treats ion rockets, minimum-fuel maneuvers, and optimum low-thrust transfers.",
+    "year": 1961
+  },
+  "W1965834973": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://adsabs.harvard.edu/pdf/1961AJ.....66..193B",
+    "checkedAt": "2026-10-28",
+    "note": "Title and original AJ PDF explicitly concern atmospheric-drag effects on artificial satellite motion.",
+    "year": 1961
+  },
+  "W2087168055": {
+    "topics": [
+      "smallbody",
+      "celestial"
+    ],
+    "sourceUrl": "https://adsabs.harvard.edu/pdf/1962aj.....67..591k",
+    "checkedAt": "2026-10-28",
+    "note": "Title and original AJ PDF explicitly concern asteroid secular perturbations.",
+    "year": 1962
+  },
+  "W2063480122": {
+    "topics": [
+      "celestial",
+      "multibody"
+    ],
+    "sourceUrl": "https://doi.org/10.1016/0032-0633(62)90129-0",
+    "checkedAt": "2026-10-28",
+    "note": "Title identifies gravitational perturbations of satellite orbits by external bodies.",
+    "year": 1962
+  },
+  "W2001692109": {
+    "topics": [
+      "optimization",
+      "navigation"
+    ],
+    "sourceUrl": "https://collections.si.edu/search/results.htm?q=%22Space+trajectories%22",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly says optimal trajectories for space navigation; Smithsonian original-book catalogue confirms 1963.",
+    "year": 1963
+  },
+  "W2126097645": {
+    "topics": [
+      "multibody"
+    ],
+    "sourceUrl": "https://ntrs.nasa.gov/citations/19630001662",
+    "checkedAt": "2026-10-28",
+    "note": "NASA TN-D-1455 catalogue describes astronomical integration and an N-body space-mechanics FORTRAN code.",
+    "year": 1963
+  },
+  "W2971175571": {
+    "topics": [
+      "navigation"
+    ],
+    "sourceUrl": "https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/FORTRAN/spicelib/spke15.html",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies astronautical guidance; original 1964 edition confirmed by catalogue/JPL references.",
+    "year": 1964
+  },
+  "W1987174523": {
+    "topics": [
+      "navigation"
+    ],
+    "sourceUrl": "https://doi.org/10.1016/b978-0-12-395587-6.50032-6",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies statistical filtering of space navigation measurements.",
+    "year": 1964
+  },
+  "W3013889054": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://doi.org/10.1093/pasj/17.4.395",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies Earth-tide perturbations of close Earth satellite motion.",
+    "year": 1965
+  },
+  "W355638855": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://academic.oup.com/pasj/article/18/4/287/8112520",
+    "checkedAt": "2026-10-28",
+    "note": "Publisher abstract explicitly applies canonical perturbation theory to artificial satellite motion.",
+    "year": 1966
+  },
+  "W3159771832": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "http://ui.adsabs.harvard.edu/abs/1966lcmi.book.....K/abstract",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies lectures on celestial mechanics.",
+    "year": 1966
+  },
+  "W627140016": {
+    "topics": [
+      "multibody",
+      "celestial"
+    ],
+    "sourceUrl": "https://ntrs.nasa.gov/citations/19670055303",
+    "checkedAt": "2026-10-28",
+    "note": "NASA catalogue describes restricted three-body dynamics, two-body dynamics, and periodic orbits.",
+    "year": 1967
+  },
+  "W2038680924": {
+    "topics": [
+      "multibody",
+      "celestial"
+    ],
+    "sourceUrl": "https://doi.org/10.1016/0022-0396(68)90037-5",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies periodic solutions of the planar three-body problem and lunar theory.",
+    "year": 1968
+  },
+  "W1993145927": {
+    "topics": [
+      "multibody"
+    ],
+    "sourceUrl": "https://doi.org/10.1016/0022-0396(69)90003-5",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies regularization of the elliptic restricted three-body problem.",
+    "year": 1969
+  },
+  "W2976807405": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://ntrs.nasa.gov/citations/19690061351",
+    "checkedAt": "2026-10-28",
+    "note": "NASA AIAA-69-908 catalogue explicitly describes integration of modified Lagrange planetary equations for satellite orbit prediction.",
+    "year": 1969
+  },
+  "W1524565983": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://link.springer.com/book/10.1007/978-3-642-87284-6",
+    "checkedAt": "2026-10-28",
+    "note": "Book title and publisher contents identify celestial mechanics, three-body motion, periodic solutions, and stability. Original work: 1971; linked DOI describes a 1995 reprint / 2012 ebook.",
+    "year": 1971
+  },
+  "W3107051759": {
+    "topics": [
+      "multibody"
+    ],
+    "sourceUrl": "https://ui.adsabs.harvard.edu/abs/1971BAAS....3R.268B/abstract",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies numerical solution of the gravitational N-body problem.",
+    "year": 1971
+  },
+  "W117463993": {
+    "topics": [
+      "multibody"
+    ],
+    "sourceUrl": "https://doi.org/10.1007/978-94-010-2611-6_20",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies integration methods for the N-body problem.",
+    "year": 1973
+  },
+  "W3000878190": {
+    "topics": [
+      "celestial"
+    ],
+    "sourceUrl": "https://link.springer.com/article/10.1007/BF01229950",
+    "checkedAt": "2026-10-28",
+    "note": "Publisher abstract explicitly describes orbital eccentricity/inclination, parabolic/hyperbolic/elliptic orbits, and Lagrange planetary equations.",
+    "year": 1973
+  },
+  "W17066153": {
+    "topics": [
+      "smallbody",
+      "celestial"
+    ],
+    "sourceUrl": "https://doi.org/10.1017/s007418090007042x",
+    "checkedAt": "2026-10-28",
+    "note": "Title explicitly identifies secular perturbations of asteroid families.",
+    "year": 1974
+  }
+}

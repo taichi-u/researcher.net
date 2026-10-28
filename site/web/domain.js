@@ -6,7 +6,15 @@ export const TOPICS = [
   {id:'relative',label:'ランデブー・編隊',en:'Rendezvous & formation',color:'#4B8790',pattern:/rendezvous|formation.fly|formation.flight|relative.motion|relative.orbit|proximity.operation|docking|spacecraft.swarm|constellation|debris.removal/i},
   {id:'optimization',label:'数値最適化・最適制御',en:'Optimization & optimal control',color:'#B26150',pattern:/optimi[sz]|optimal.control|pseudospectral|collocation|convex|homotop|primer.vector|shooting.method|lambert/i},
   {id:'robust',label:'ロバスト・確率的設計',en:'Robust & stochastic design',color:'#948237',pattern:/robust|stochastic|uncertain|chance.constrain|missed.thrust|contingenc|reliability|risk.aware/i},
-  {id:'learning',label:'機械学習・自律設計',en:'Learning & autonomy',color:'#9C6C88',pattern:/machine.learning|reinforcement.learning|neural|deep.learning|artificial.intelligence|autonomous|surrogate.model|gaussian.process/i}
+  {id:'learning',label:'機械学習・自律設計',en:'Learning & autonomy',color:'#9C6C88',pattern:/machine.learning|reinforcement.learning|neural|deep.learning|artificial.intelligence|autonomous|surrogate.model|gaussian.process/i},
+  {id:'celestial',label:'天体力学・摂動論',en:'Celestial mechanics & perturbations',color:'#656F8A',pattern:/celestial.mechanics|orbital.dynamics|orbital.resonance|secular.perturbation|satellite.theory|planetary.motion|kepler|kozai|lidov|n.body.problem|satellite.orbit|stability.of.*orbit/i},
+  {id:'navigation',label:'軌道決定・宇宙航法',en:'Orbit determination & space navigation',color:'#3D7A84',pattern:/orbit(?:al)?.determination|orbit.estimation|spacecraft.navigation|satellite.navigation|orbit.reconstruction|initial.orbit|angles.only|precise.orbit|astrometr/i},
+  {id:'debris',label:'スペースデブリ・宇宙監視',en:'Space debris & surveillance',color:'#897046',pattern:/space.debris|orbital.debris|collision.avoidance|space.situational|space.surveillance|debris.removal|conjunction.assessment|space.traffic/i},
+  {id:'entry',label:'再突入・着陸',en:'Atmospheric entry & landing',color:'#A06C61',pattern:/re.entry|reentry|atmospheric.entry|entry.descent|aerocapture|aerobraking|hypersonic.trajectory|entry.guidance|planetary.landing|lunar.landing|mars.landing|powered.descent/i},
+  {id:'launch',label:'打上げ・上昇軌道',en:'Launch vehicles & ascent',color:'#786D55',pattern:/launch.vehicle|ascent.trajectory|rocket.trajectory|launch.window|rocket.flight|launch.trajectory|ascent.guidance|multistage.rocket/i},
+  {id:'attitude',label:'姿勢制御・誘導',en:'Attitude dynamics & guidance',color:'#7A7294',pattern:/attitude|spacecraft.guidance|satellite.control|reaction.wheel|control.moment.gyro|spacecraft.dynamics/i},
+  {id:'propulsion',label:'宇宙推進',en:'Space propulsion',color:'#9A7656',pattern:/rocket.propulsion|space.propulsion|electric.propulsion|ion.thrust|nuclear.propulsion|chemical.propulsion|thrust.vector|solar.sail|plasma.propulsion/i},
+  {id:'geodesy',label:'衛星測地・重力場',en:'Satellite geodesy & gravity fields',color:'#60816F',pattern:/satellite.geodesy|satellite.gravimetry|gravity.field|gravity.recovery|satellite.laser.rang|\bGNSS\b|\bGRACE\b|\bGOCE\b/i}
 ];
 export const normalize = s => String(s??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[’‘`]/g,"'").replace(/[^\p{L}\p{N}]/gu,'');
 export const shortId = s => String(s??'').split('/').pop();
@@ -27,10 +35,9 @@ export function abstractText(inverted) { if(!inverted) return '';const words=[];
 export function classify(title, abstract='') {
   const text = `${title} ${abstract}`;
   // Require a spacecraft/orbital context; robotics and mathematical optimisation alone are out of scope.
-  const context = /spacecraft|astrodynamic|orbit|interplanetary|cislunar|cis.lunar|libration|gravity.assist|solar.sail|low.thrust|satellite|earth.moon|asteroid|comet/i.test(title);
+  const context = /launch.vehicle|ascent.trajectory|hypersonic.trajectory|spacecraft|astrodynamic|orbit|interplanetary|cislunar|cis.lunar|libration|gravity.assist|solar.sail|low.thrust|satellite|earth.moon|asteroid|comet|celestial.mechanics|planetary.motion|kepler|rocket|space.propulsion|space.debris|re.entry|reentry|aerocapture|aerobraking|atmospheric.entry|entry.descent|planetary.landing|lunar.landing|mars.landing|powered.descent|\bGNSS\b|\bGRACE\b|\bGOCE\b/i.test(title);
   if(!context) return [];
   if(/asteroid|comet/i.test(title) && !/orbit|trajectory|spacecraft|mission|transfer|dynamics|control|navigation|rendezvous|gravity|proximity|mapping|landing/i.test(title)) return [];
-  if(/attitude/i.test(title) && !/orbit|trajectory|rendezvous|formation|proximity/i.test(title)) return [];
   return TOPICS.filter(t=>t.pattern.test(text)).map(t=>t.id);
 }
 export function inPeriod(start,end,from,to,includeUnknown=true) {

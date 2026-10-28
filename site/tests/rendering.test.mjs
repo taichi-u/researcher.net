@@ -24,7 +24,9 @@ test('overview preserves every connected person and explicit relationships; sele
 });
 test('lazy catalog preserves filtering, counts, title search and complete source records',()=>{
   const {catalog,shards}=partitionBrowserData(data);
-  assert.ok(JSON.stringify(catalog).length<JSON.stringify(data).length/3);
+  // Per-person searchable metadata grows with the expanded catalogue; paper details remain deferred.
+  assert.ok(JSON.stringify(catalog).length<JSON.stringify(data).length/2);
+  assert.ok(JSON.stringify(catalog.works).length<JSON.stringify(data.works).length/3);
   assert.deepEqual(shards.flat().sort((a,b)=>a.id.localeCompare(b.id)),[...data.works].sort((a,b)=>a.id.localeCompare(b.id)));
   for(const state of [{},{from:2020,to:2026,topics:['lowthrust']},{mode:'lineage',kinds:['advisor']}]){
     const original=selectView(data,state),lazy=selectView(catalog,state);

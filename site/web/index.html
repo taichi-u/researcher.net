@@ -24,7 +24,8 @@
       <div class="search-block">
         <div class="sidebar-heading"><h1>研究者</h1><button class="icon-button mobile-only" id="close-sidebar" aria-label="検索パネルを閉じる">×</button></div>
         <label for="search" class="sr-only">氏名・所属・テーマ・論文名を検索</label>
-        <div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="氏名・所属・論文名" autocomplete="off"><button id="clear-search" aria-label="検索をクリア" hidden>×</button></div>
+        <div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="氏名・所属・論文名" autocomplete="off" aria-describedby="search-help"><button id="clear-search" aria-label="検索をクリア" hidden>×</button></div>
+        <p id="search-help" class="search-help">別名・研究テーマでも検索できます</p>
       </div>
       <div class="filter-scroll">
         <details class="filter-section">
@@ -46,15 +47,15 @@
           </div>
         </details>
       </div>
-      <button id="reset-filters" class="text-button reset-filters">絞り込みを解除</button>
-      <div class="list-heading"><h2>収録 <span id="result-count">—</span></h2><span id="list-caption">起点順 · 論文数</span></div>
+      <section id="active-conditions" class="active-conditions" aria-label="適用中の条件" hidden><div class="conditions-heading"><span>適用中の条件</span><button id="reset-filters" class="text-button">すべて解除</button></div><div id="filter-chips" class="filter-chips"></div></section>
+      <div class="list-heading"><h2>研究者 <span id="result-count">—</span><span>人</span></h2><span id="list-caption">起点順 · 論文数</span></div>
       <div id="people-list" class="people-list" aria-label="研究者一覧"></div>
       <div class="sidebar-foot">共著件数は収録論文内の集計</div>
     </aside>
     <section class="map-pane" aria-label="研究者の関係図">
       <div class="map-toolbar">
         <div class="mode-switch" role="group" aria-label="表示切り替え"><button id="network-mode" aria-pressed="true">共著ネットワーク</button><button id="lineage-mode" aria-pressed="false">研究の系譜</button></div>
-        <button class="mobile-only button compact" id="open-sidebar">検索・絞り込み</button>
+        <button class="mobile-only button compact" id="open-sidebar">検索・絞り込み<span id="mobile-filter-count" class="filter-count" hidden></span></button>
         <div class="map-counts" id="map-counts">データを読み込み中</div>
       </div>
       <div class="map-reading-bar"><span id="edge-summary">共著線</span><div class="reading-actions"><button id="clear-selection" class="text-button" hidden>選択解除</button><label for="edge-density" class="sr-only">線の表示量</label><select id="edge-density"><option value="auto">主要な線</option><option value="all">すべての線</option></select></div></div>

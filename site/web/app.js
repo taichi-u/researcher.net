@@ -2,6 +2,7 @@ import {makeIndexes,selectView,searchPeople,relationshipPeriod} from './model.js
 import {makeEdgeLevels,renderEdges} from './graph-policy.js';
 import {createPaperLoader} from './paper-data.js';
 const $=s=>document.querySelector(s);
+const mobileLayout=window.matchMedia('(max-width:900px)');
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const url=s=>/^https?:\/\//.test(String(s))?escape(s):'#';
 const link=(href,label,cls='')=>`<a class="${cls}" href="${url(href)}" target="_blank" rel="noopener noreferrer">${escape(label)} ↗</a>`;
@@ -177,11 +178,29 @@ function selectNode(id,center=true){
   selected={type:'node',id};detailTab='overview';paperLimit=20;openDetail();syncGraphEdges();renderPeople();applyHighlight();renderDetail();
   $('#graph').dataset.focusReady=String(!center);
   if(center){requestAnimationFrame(()=>{cy.resize();const node=cy.getElementById(id);if(node.length){const neighborhood=node.closedNeighborhood();fitElements(neighborhood,85);cy.zoom(Math.min(cy.zoom(),1.4));cy.center(node);settleViewport();}$('#graph').dataset.focusReady='true';});}
-  $('#workspace').classList.remove('sidebar-open');$('#tooltip').hidden=true;status(`${personName(id)}の詳細`);
+  setSidebarOpen(false,{restoreFocus:false});$('#tooltip').hidden=true;status(`${personName(id)}の詳細`);
 }
 function selectEdge(id){selected={type:'edge',id};paperLimit=20;openDetail();syncGraphEdges();applyHighlight();renderDetail();$('#tooltip').hidden=true;}
 function openDetail(){if($('#detail-panel').hidden){lastFocusElement=document.activeElement;lastFocusPerson=lastFocusElement?.dataset?.person;}$('#detail-panel').hidden=false;$('#workspace').classList.add('has-detail');requestAnimationFrame(()=>$('#close-detail').focus({preventScroll:true}));}
-function closeDetail(){selected=null;$('#detail-panel').hidden=true;$('#workspace').classList.remove('has-detail');if(cy){syncGraphEdges();applyHighlight();}if(lastFocusPerson)document.querySelector(`[data-person="${CSS.escape(lastFocusPerson)}"]`)?.focus({preventScroll:true});else if(lastFocusElement?.isConnected&&lastFocusElement!==document.body)lastFocusElement.focus({preventScroll:true});lastFocusElement=null;lastFocusPerson=null;}
+function closeDetail(){selected=null;$('#detail-panel').hidden=true;$('#workspace').classList.remove('has-detail');if(cy){syncGraphEdges();applyHighlight();}if(mobileLayout.matches)$('#open-sidebar').focus({preventScroll:true});else if(lastFocusPerson)document.querySelector(`[data-person="${CSS.escape(lastFocusPerson)}"]`)?.focus({preventScroll:true});else if(lastFocusElement?.isConnected&&lastFocusElement!==document.body)lastFocusElement.focus({preventScroll:true});lastFocusElement=null;lastFocusPerson=null;}
+function syncSidebar(){
+  const mobile=mobileLayout.matches,open=mobile&&$('#workspace').classList.contains('sidebar-open'),sidebar=$('#sidebar');
+  sidebar.inert=mobile&&!open;$('#open-sidebar').setAttribute('aria-expanded',open);$('#sidebar-backdrop').hidden=!open;
+  for(const selector of ['.site-header','.map-pane','#detail-panel'])$(selector).inert=open;
+  if(open){sidebar.setAttribute('role','dialog');sidebar.setAttribute('aria-modal','true');}
+  else{sidebar.removeAttribute('role');sidebar.removeAttribute('aria-modal');}
+}
+function setSidebarOpen(open,{restoreFocus=true}={}){
+  $('#workspace').classList.toggle('sidebar-open',mobileLayout.matches&&open);syncSidebar();
+  if(open)$('#search').focus({preventScroll:true});else if(mobileLayout.matches&&restoreFocus)$('#open-sidebar').focus({preventScroll:true});
+}
+function trapSidebarFocus(event){
+  if(event.key!=='Tab'||!mobileLayout.matches||!$('#workspace').classList.contains('sidebar-open'))return;
+  const controls=[...$('#sidebar').querySelectorAll('a[href],button,input,select,summary,[tabindex]')].filter(el=>!el.disabled&&el.tabIndex>=0&&el.getClientRects().length);
+  const first=controls[0],last=controls.at(-1);
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
+}
 function renderDetail(){
   if(!selected)return;
   const container=$('#detail-content');
@@ -213,6 +232,7 @@ function resetFilters({keepSearch=false,allResearchers=false}={}){clearTimeout(s
 function setMode(mode,focusSelected=false){const p=selected?.type==='node'?selected.id:null;state.mode=mode;state.focusId=null;cy.nodes().forEach(n=>{const person=indexes.nodes.get(n.id());n.position(mode==='lineage'?(person.lineagePosition??person.position):person.position);});syncControls();updateView({fit:true});if(focusSelected&&p&&view.visibleIds.has(p)){selected={type:'node',id:p};detailTab='relations';renderDetail();applyHighlight();const n=cy.getElementById(p);fitElements(n.closedNeighborhood(),100);cy.zoom(Math.min(cy.zoom(),1.3));cy.center(n);settleViewport();}}
 function renderAbout(){const m=data.metadata;$('#about-content').innerHTML=`<table class="data-table"><tbody><tr><th>調査日</th><td>${m.snapshotDate}</td></tr><tr><th>研究者</th><td>${number(m.counts.researchers)}人</td></tr><tr><th>対象論文</th><td>${number(m.counts.works)}件</td></tr><tr><th>指導関係</th><td>${m.counts.advisorships}件</td></tr><tr><th>研究室 / 研究課題</th><td>${m.counts.labs} / ${m.counts.projects}件</td></tr></tbody></table><h3>対象範囲</h3><ul>${m.notes.map(n=>`<li>${escape(n)}</li>`).join('')}</ul><p>この版は固定データです。自動更新は行っていません。</p><h3>起点研究者</h3><div class="seed-list">${data.researchers.filter(p=>p.seed).map(p=>escape(p.name)).join(' / ')}</div><h3>データの取得と選定</h3><p>元の296人を残し、12種類の書誌検索を3年代に分けて追加取得しました。1977年以前の対象文献の著者を含め、その他は対象文献が2件以上ある著者から分野・年代ごとに順に選定しています。19世紀からの古典文献は出版社・所蔵機関の書誌も確認しています。著者数が50人を超える文献はネットワーク集計から除いています。</p><p>論文の全著者は保存していますが、マップ上の表示対象は収録した研究者です。原データが分割・混同した著者は、確認できた範囲で訂正しています。</p><p>Crossrefは起点研究者の論文など19件の書誌照合に使用しました。その他の論文メタデータはOpenAlexに基づきます。</p><h3>情報源</h3><p>${link('https://openalex.org/','OpenAlex')} · ${link('https://www.crossref.org/documentation/retrieve-metadata/rest-api/','Crossref')} · ${link('https://kaken.nii.ac.jp/','KAKEN')} · ${link('https://cordis.europa.eu/','CORDIS')}</p><p>個々の根拠は人物・論文・関係の詳細に表示します。年代不明は推定で埋めていません。指導関係を共著や同研究室への所属だけから推定していません。</p><h3>図の読み方</h3><p>円は研究者、四角は研究室、菱形は研究課題。色は収録論文で最も多いテーマです。点の大きさは研究者の評価を表しません。系譜の矢印は指導教員から学生に向かいます。</p><p>年代フィルターは論文の出版年、指導の記録年、研究室の確認できた在籍年、課題の実施期間に適用します。所属期間の「?」は不明を表します。</p>`;}
 function attachEvents(){
+  $('.skip-link').onclick=e=>{e.preventDefault();setSidebarOpen(true);};
   $('#clear-selection').onclick=()=>{closeDetail();renderPeople();};
   $('#edge-density').onchange=()=>{syncGraphEdges();applyHighlight();};
   document.addEventListener('toggle',e=>{if(e.target.matches('details[data-work]')&&e.target.open)loadPaperEvidence(e.target);},true);
@@ -228,14 +248,16 @@ function attachEvents(){
   document.querySelectorAll('[name=relation]').forEach(el=>el.onchange=()=>{state.kinds=[...document.querySelectorAll('[name=relation]:checked')].map(e=>e.value);updateView();});
   $('#network-mode').onclick=()=>setMode('network');$('#lineage-mode').onclick=()=>setMode('lineage');$('#reset-filters').onclick=resetFilters;$('#empty-reset').onclick=resetFilters;
   $('#zoom-in').onclick=()=>cy.zoom({level:Math.min(cy.zoom()*1.35,4),renderedPosition:{x:cy.width()/2,y:cy.height()/2}});$('#zoom-out').onclick=()=>cy.zoom({level:Math.max(cy.zoom()/1.35,.08),renderedPosition:{x:cy.width()/2,y:cy.height()/2}});$('#fit-map').onclick=()=>{fitElements(cy.elements());settleViewport();};
-  $('#close-detail').onclick=()=>{const person=lastFocusPerson;closeDetail();renderPeople();if(person)document.querySelector(`[data-person="${CSS.escape(person)}"]`)?.focus({preventScroll:true});};$('#clear-focus').onclick=()=>{state.focusId=null;updateView({fit:true});};
-  $('#open-sidebar').onclick=()=>{$('#workspace').classList.add('sidebar-open');$('#search').focus();};$('#close-sidebar').onclick=()=>{$('#workspace').classList.remove('sidebar-open');$('#open-sidebar').focus();};
+  $('#close-detail').onclick=()=>{const person=lastFocusPerson;closeDetail();renderPeople();if(person&&!mobileLayout.matches)document.querySelector(`[data-person="${CSS.escape(person)}"]`)?.focus({preventScroll:true});};$('#clear-focus').onclick=()=>{state.focusId=null;updateView({fit:true});};
+  $('#open-sidebar').onclick=()=>setSidebarOpen(true);$('#close-sidebar').onclick=()=>setSidebarOpen(false);$('#sidebar-backdrop').onclick=()=>setSidebarOpen(false);
+  mobileLayout.addEventListener('change',()=>{const focusInSidebar=$('#sidebar').contains(document.activeElement),focusOnOpener=document.activeElement===$('#open-sidebar');$('#workspace').classList.remove('sidebar-open');syncSidebar();if(mobileLayout.matches&&(focusInSidebar||document.activeElement===document.body))$('#open-sidebar').focus();else if(!mobileLayout.matches&&(focusOnOpener||document.activeElement===document.body))$('#search').focus();});
   $('#about-button').onclick=()=>$('#about-dialog').showModal();$('#close-about').onclick=()=>$('#about-dialog').close();
   $('#tooltip').onmouseenter=()=>clearTimeout(tooltipTimer);$('#tooltip').onmouseleave=()=>$('#tooltip').hidden=true;
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){$('#tooltip').hidden=true;$('#workspace').classList.remove('sidebar-open');}if(e.key==='/'&& !['INPUT','TEXTAREA'].includes(e.target.tagName)){e.preventDefault();$('#workspace').classList.add('sidebar-open');$('#search').focus();}});
+  document.addEventListener('keydown',e=>{if(e.isComposing)return;trapSidebarFocus(e);if(e.key==='Escape'){$('#tooltip').hidden=true;if($('#about-dialog').open)return;if($('#workspace').classList.contains('sidebar-open')){e.preventDefault();setSidebarOpen(false);}else if(selected){e.preventDefault();closeDetail();renderPeople();}else if($('#map-legend').open){$('#map-legend').open=false;$('#map-legend summary').focus();}}if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!e.target.isContentEditable&&!['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)&&!$('#about-dialog').open){e.preventDefault();setSidebarOpen(true);}});
   document.addEventListener('click',e=>{const btn=e.target.closest('[data-person],[data-edge],[data-tab],[data-focus],[data-show-lineage],[data-more]');if(!btn)return;if(btn.dataset.person)selectNode(btn.dataset.person);else if(btn.dataset.edge)selectEdge(btn.dataset.edge);else if(btn.dataset.tab){detailTab=btn.dataset.tab;paperLimit=20;renderDetail();$('#detail-content').querySelector(`[data-tab="${detailTab}"]`)?.focus({preventScroll:true});}else if(btn.dataset.focus){state.focusId=btn.dataset.focus;updateView({fit:true});}else if(btn.hasAttribute('data-show-lineage'))setMode('lineage',true);else if(btn.hasAttribute('data-more')){const top=$('#detail-content').scrollTop;paperLimit+=20;renderDetail();$('#detail-content').scrollTop=top;}});
 }
 async function start(){
+  syncSidebar();
   try{const res=await fetch('./data/dataset.json');if(!res.ok)throw Error('Dataset unavailable');data=await res.json();for(const t of data.topics)if(!palette[t.id])palette[t.id]=t.color;$('.snapshot').textContent=`データ ${data.metadata.snapshotDate.replaceAll('-','.')}`;indexes=makeIndexes(data);loadPaper=createPaperLoader(indexes.works,async shard=>{const res=await fetch(`./data/works/${shard}.json`);if(!res.ok)throw Error('Paper details unavailable');return res.json();});state={from:data.metadata.minYear,to:data.metadata.maxYear,includeUnknown:true,topics:[],kinds:['coauthor'],mode:'network',focusId:null};renderFilters();renderAbout();await document.fonts.load('16px "Source Serif 4"').catch(()=>{});initGraph();attachEvents();updateView({fit:true});$('#loading').hidden=true;document.body.dataset.ready='true';}
   catch(error){$('#loading').innerHTML='<h2>データを読み込めませんでした</h2><p>ページを再読み込みしてください。</p><button class="button" id="reload">再読み込み</button>';$('#reload').onclick=()=>location.reload();console.error(error);}
 }

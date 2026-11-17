@@ -52,10 +52,11 @@
       <div id="people-list" class="people-list" aria-label="研究者一覧"></div>
       <div class="sidebar-foot">共著件数は収録論文内の集計</div>
     </aside>
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true" hidden></div>
     <section class="map-pane" aria-label="研究者の関係図">
       <div class="map-toolbar">
         <div class="mode-switch" role="group" aria-label="表示切り替え"><button id="network-mode" aria-pressed="true">共著ネットワーク</button><button id="lineage-mode" aria-pressed="false">研究の系譜</button></div>
-        <button class="mobile-only button compact" id="open-sidebar">検索・絞り込み<span id="mobile-filter-count" class="filter-count" hidden></span></button>
+        <button class="mobile-only button compact" id="open-sidebar" aria-controls="sidebar" aria-expanded="false">検索・絞り込み<span id="mobile-filter-count" class="filter-count" hidden></span></button>
         <div class="map-counts" id="map-counts">データを読み込み中</div>
       </div>
       <div class="map-reading-bar"><span id="edge-summary">共著線</span><div class="reading-actions"><button id="clear-selection" class="text-button" hidden>選択解除</button><label for="edge-density" class="sr-only">線の表示量</label><select id="edge-density"><option value="auto">主要な線</option><option value="all">すべての線</option></select></div></div>

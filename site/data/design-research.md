@@ -8,6 +8,8 @@
 
 ブラウザの回帰確認は `npm run test:exploration` で再現できる。画面・操作の確認と、データの正確性・網羅性の検証は別に扱う。
 
+地図上の16テーマの色を確認する凡例も追加した。[配色スキル](https://github.com/taichi-u/taichi-skills/blob/main/skills/web-design-skills/categories/web-design-color/SKILL.md)の、分類色にテーマ名を添える観点を適用。既存の色を使い、選択はチェック印と `aria-pressed` でも示す。凡例のテーマ操作は検索パネルと同じ論文フィルターを使い、主テーマの色だけで人物を限定しない。
+
 ---
 
 調査・更新日: 2026-10-26。対象データは2026-10-23の固定スナップショット。

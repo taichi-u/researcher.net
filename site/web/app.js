@@ -35,6 +35,7 @@ function paperHTML(w){
 function paperListHTML(works){const sorted=[...works].sort((a,b)=>(b.year??0)-(a.year??0)||a.title.localeCompare(b.title));return sorted.slice(0,paperLimit).map(paperHTML).join('')+(sorted.length>paperLimit?`<button class="button more-button" data-more>次の20件（残り${number(sorted.length-paperLimit)}件）</button>`:'');}
 function renderFilters(){
   $('#topic-filters').innerHTML=data.topics.map(t=>`<label class="topic-filter"><input type="checkbox" name="topic" value="${t.id}"><span class="topic-swatch" style="background:${palette[t.id]}"></span><span>${escape(t.label)}</span></label>`).join('');
+  $('#topic-legend').innerHTML=data.topics.map(t=>`<button data-legend-topic="${escape(t.id)}" aria-pressed="false"><i style="background:${palette[t.id]}" aria-hidden="true"></i><span>${escape(t.label)}</span><span class="legend-check" aria-hidden="true">✓</span></button>`).join('');
   for(const id of ['year-from','year-to']){const el=$('#'+id);el.min=data.metadata.minYear;el.max=data.metadata.maxYear;el.value=id==='year-from'?state.from:state.to;}
   $('#period-summary').textContent=`${state.from}–${state.to}`;
 }
@@ -152,6 +153,7 @@ function updateView({fit=false}={}){
   $('#lab-key').hidden=!view.auxiliary.some(a=>a.kind==='lab');$('#project-key').hidden=!view.auxiliary.some(a=>a.kind==='project');
   $('#key-note').textContent=state.mode==='lineage'?'矢印：指導教員 → 学生':'線の太さ：共著件数';
   $('#period-summary').textContent=`${state.from}–${state.to}`;$('#topic-count').textContent=state.topics.length?`${state.topics.length}テーマ`:'全テーマ';
+  for(const button of document.querySelectorAll('[data-legend-topic]'))button.setAttribute('aria-pressed',state.topics.includes(button.dataset.legendTopic));
   $('#focus-indicator').hidden=!state.focusId;$('#focus-label').textContent=state.focusId?`${personName(state.focusId)} の周辺`:'';
   if(selected&&!cy.getElementById(selected.id).length){selected=null;closeDetail();status('選択した項目は絞り込み範囲外です。');}
   renderPeople();applyHighlight();if(selected)renderDetail();
@@ -220,6 +222,7 @@ function attachEvents(){
   $('#people-list').addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();(e.key==='ArrowDown'?e.target.nextElementSibling:e.target.previousElementSibling)?.focus();}});
   $('#search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(renderPeople,80);});$('#clear-search').onclick=()=>{$('#search').value='';renderPeople();$('#search').focus();};
   $('#topic-filters').addEventListener('change',()=>{state.topics=[...document.querySelectorAll('[name=topic]:checked')].map(e=>e.value);updateView();});
+  $('#topic-legend').addEventListener('click',e=>{const button=e.target.closest('[data-legend-topic]');if(!button)return;const id=button.dataset.legendTopic;state.topics=state.topics.includes(id)?state.topics.filter(topic=>topic!==id):[...state.topics,id];syncControls();updateView();});
   const changeYears=()=>{const from=Number($('#year-from').value),to=Number($('#year-to').value);if(!Number.isInteger(from)||!Number.isInteger(to)||from<data.metadata.minYear||to>data.metadata.maxYear||from>to){status('開始年と終了年を確認してください。');$('#year-from').setCustomValidity('開始年は収録範囲内で、終了年以下にしてください。');$('#year-from').reportValidity();return;}$('#year-from').setCustomValidity('');state.from=from;state.to=to;updateView();};
   let yearTimer;for(const id of ['year-from','year-to']){const input=$('#'+id);input.onchange=changeYears;input.oninput=()=>{clearTimeout(yearTimer);yearTimer=setTimeout(()=>{const from=Number($('#year-from').value),to=Number($('#year-to').value);if(Number.isInteger(from)&&Number.isInteger(to)&&from>=data.metadata.minYear&&to<=data.metadata.maxYear&&from<=to)changeYears();},120);};}$('#include-unknown').onchange=e=>{state.includeUnknown=e.target.checked;updateView();};
   document.querySelectorAll('[name=relation]').forEach(el=>el.onchange=()=>{state.kinds=[...document.querySelectorAll('[name=relation]:checked')].map(e=>e.value);updateView();});

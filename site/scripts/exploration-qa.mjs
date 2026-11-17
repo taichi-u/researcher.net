@@ -62,6 +62,16 @@ try{
   assert.equal(await page.locator('#detail-panel').isVisible(),false);
   await page.locator('#reset-filters').click();
   assert.equal(await page.locator('#result-count').textContent(),total);
+  await page.locator('#map-legend summary').click();
+  await page.locator('[data-legend-topic=lowthrust]').click();
+  assert.equal(await page.locator('[name=topic][value=lowthrust]').isChecked(),true);
+  assert.equal(await page.locator('[data-legend-topic=lowthrust]').getAttribute('aria-pressed'),'true');
+  assert.ok(Number((await page.locator('#result-count').textContent()).replaceAll(',',''))<Number(total.replaceAll(',','')));
+  await page.locator('[data-remove-condition="topic:lowthrust"]').click();
+  assert.equal(await page.locator('[data-legend-topic=lowthrust]').getAttribute('aria-pressed'),'false');
+  assert.equal(await page.locator('#result-count').textContent(),total);
+  await page.screenshot({path:path.join(output,'legend.png')});
+  await page.locator('#map-legend summary').click();
   await page.screenshot({path:path.join(output,'overview.png')});
   assert.deepEqual(errors,[]);
   console.log(JSON.stringify({total,conditions:'individual removal preserves other conditions',emptySearch:'query preserved',quickEnter:'latest query',composition:'no premature selection',errors},null,2));

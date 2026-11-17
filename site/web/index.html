@@ -66,6 +66,7 @@
         <div class="focus-indicator" id="focus-indicator" hidden><span id="focus-label"></span><button id="clear-focus" aria-label="周辺表示を解除">×</button></div>
         <div class="map-controls" role="group" aria-label="マップ操作"><button id="zoom-in" aria-label="拡大">＋</button><button id="zoom-out" aria-label="縮小">−</button><button id="fit-map" aria-label="全体を表示"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
         <div id="tooltip" class="graph-tooltip" role="tooltip" hidden></div>
+        <details class="map-legend" id="map-legend"><summary>研究テーマの色</summary><div class="legend-content"><p>色は各研究者の主なテーマです。テーマを選ぶと関連する論文で絞り込みます。</p><div id="topic-legend" class="topic-legend" role="group" aria-label="テーマで絞り込み"></div></div></details>
         <div class="map-key"><span><i class="shape person"></i>研究者</span><span id="lab-key" hidden><i class="shape lab"></i>研究室</span><span id="project-key" hidden><i class="shape project"></i>研究課題</span><span class="key-note" id="key-note">線の太さ：共著件数</span></div>
       </div>
       <footer class="map-footer"><span id="view-note">配置は共著関係に基づきます。地理的位置は表しません。</span><span id="selection-help">人物を選ぶと関係を強調</span></footer>
